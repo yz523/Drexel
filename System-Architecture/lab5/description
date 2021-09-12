@@ -1,0 +1,1 @@
+alu32.vhd is the modified file of alu 32-bit structural model. Less code needed for this file comparing to 32 1-bit structural model. The tb_alu_32.vhd is the modified file of the test statements.

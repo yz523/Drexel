@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+        <head >
+                <title>Films</title>
+                <div class="header">
+                        <h1>Assignment 1</h1>
+                        <h3>Yiyun Zhang</h3>
+                </div>
+
+                        
+        </head>
+        <body>
+                <div class="center">
+                        <form onsubmit="return API.createFilm()">
+                                <h2>Add a film:</h2>
+                                <input type="text" id="myInput">
+                                <input type="submit" value="Submit" class="b1">
+                                <div class="redAlert" id="redAlert">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <strong>Failed!</strong> Please enter a valid flim name.
+                                </div>
+                                <div class="greenAlert" id="greenAlert">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <strong>Success!</strong> Flim name submitted.
+                                </div>
+                              </form>
+                        <form onsubmit="return API.getFilms()">
+                                <input type="submit" value="Show" class="b2">    
+                        </form>
+                        
+                        <table id="myTable"></table>
+                </div>
+
+                        
+        </body>
+
+</html>
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script type="text/javascript" src="./films.js"></script>

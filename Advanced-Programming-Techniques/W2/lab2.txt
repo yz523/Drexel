@@ -1,0 +1,20 @@
+Q1: Output is ./.bash_history
+Q2: find . -name "*bash" -print
+Q3: Output is ./CS265/lab1/hello.bash
+			  ./tmp/gotMe.bash
+Q4: Characters: 2538
+    Words: 421
+    Lines: 73
+Q5: grep 'the' breadIsDangerous.txt | wc -l
+Q6: There is a new file spellExample.bak
+Q7: The different characters between speelExample and speelExample.bak
+Q8: Nothing happened.
+Q9: grep dough breadIsDangerous.txt: search all words "dough".
+	echo $?: The value of last command executed is 127
+	grep uniqueString breadIsDangerous.txt: search all words that are uniqueString
+	echo $?: The value of last command executed is 1
+	grep dough noSuchFile: Search all words "dough" in noSuchFile
+	echo $?: The last command was not executed.
+Q10: Completed and Submitted.
+Q11: Completed and Submitted.
+Q12: Completed and Submitted.

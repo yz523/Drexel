@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#check for the needed files
+if [ ! -e sign.c ] ; then
+   echo "Missing sign.c file"
+	if [ ! -e squash.awk ] ; then
+		echo "Missing squash.awk file"
+	fi		
+	exit
+fi
+
+#compile the C program
+gcc -o sign sign.c
+
+#compile awk program
+./sign < /usr/share/dict/words | sort | awk -f squash.awk > out
+
+#output
+awk '{ print NF " " $0}' < out | sort -n | tail
+
+

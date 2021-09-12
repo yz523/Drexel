@@ -1,0 +1,163 @@
+Yiyun Zhang
+SE320
+HW2 - Whitebox Testing
+
+For this homework, the main goal is to get 100% statement/branch coverage in jacoco, to test the class that implement the left learning red black binary search tree. For each test case, I made the function names reflects their behavior and the input. There are three types of the tests, the first one is the bad inputs, which may cause the exception. The second one is the statement test, to test the code in different conditional statement. The third one is the regular test, to test if the function works correctly. 
+
+The testability of this class is good. Since all public methods takes some inputs, it is simple to test them with different input situations. Furthermore, the conditions are not extreme and complicate, therefore all conditions can be tested.
+
+The code uses informal design by contract, we can see before each method, it described the parameter, expected return value, and throws. Also has detailed description of the method’s behavior, which are preconditions, postconditions and invariants.
+
+================================Test Cases================================
+testPutNullKey():
+	Test the bad input of put function, make the first argument is null, an IllegalArgumentException happened.
+
+testPutNullVal():
+	Test the bad input of put function, make the second argument is null, the tree does not contain that input.
+
+testPut():
+	Test the regular inputs of put function, the test result is the same as expected.
+
+testPutSameNodeh():
+	Test input an existed key, the function will replace the value of the previous one.
+
+testGetNullKey():
+	Test the bad input of get function, make the argument is null, an IllegalArgumentException happened.
+
+testNullRoot():
+	Test isEmpty function, do nothing after initiate the tree, the result is the same as expected.
+
+testGetNullNode():
+	Test the bad input of get function, get the key with null value, the result is the same as expected.
+
+testGet():
+	Test the regular inputs of get function, the test result is the same as expected.
+
+testContainsNoKey():
+	Test the bad input of contains function, get the key that does not exist, the result is the same as expected.
+
+testContainslKey():
+	Test the regular inputs of contains function, the test result is the same as expected.
+
+testDeleteMin1():
+	Test the regular inputs of min function, the test result is the same as expected.
+
+testDeleteMin2():
+	Test the specific inputs of deletemin function, when the tree’s root.left and root.left.left are all red, the test result is the same as expected.
+
+testEmptyDeleteMin():
+	Test the bad input of deletemin function, make the argument is empty, an NoSuchElementException happened.
+
+test1DeleteMin():
+	Test the specific inputs of deletemin function, when the tree only have one leaf(root), the test result is the same as expected.
+
+testEmptyDeleteMax():
+	Test the bad input of deletemax function, make the argument is empty, an NoSuchElementException happened.
+
+testDeleteMax():
+	Test the regular inputs of deletemax function, the test result is the same as expected.
+
+test1DeleteMax():
+	Test the specific inputs of deletemax function, when the tree only have one leaf(root), the test result is the same as expected.
+
+testDeleteMax1():
+	Test the specific inputs of deletemax function, when the node’s left child is red, and it’s right child and right child’s left child are black, the test result is the same as expected.
+
+testDelete():
+	Test the regular inputs of delete function, the test result is the same as expected.
+
+testDelete2():
+	Test the specific inputs of delete function, when the root’s left and root’s left.left child are all black, the test result is the same as expected.
+
+testDelete3():
+	Test the specific inputs of delete function, when the root’s right and root’s right.left child are all black, the test result is the same as expected.
+
+testDeleteNullKey():
+	Test the bad input of delete function, make the argument is null, an IllegalArgumentException happened.
+
+testDeleteNullVal():
+	Test the bad input of delete function, delete a node that is not exist, an IllegalArgumentException happened.
+
+testMoveRedLeft():
+	Test the regular situation of moveRedLeft helper function, the test result is the same as expected.
+
+testMoveRedRight():
+	Test the regular situation of moveRedRight helper function, the test result is the same as expected.
+
+testmin():
+	Test the bad input of min function, when the tree is empty, an NoSuchElementException happened.
+
+testmax():
+	Test the bad input of max function, when the tree is empty, an NoSuchElementException happened.
+
+testfloorNullKey():
+	Test the bad input of floor function, when the argument is null, an IllegalArgumentException happened.
+
+testfloorEmptyKey():
+	Test the bad input of floor function, when the tree is empty, an NoSuchElementException happened.
+
+testnullfloor():
+	Test the bad input of floor function, when input a node that does not exist, the result is null.
+
+testfloor():
+	Test the regular situation of floor function, the test result is the same as expected.
+
+testsamefloor():
+	Test the specific situation of floor function, when the tree only have node(root), the test result is the same as expected.
+
+testrightfloor():
+	Test the specific situation of floor function, when the range is not included in the tree, the test result is the same as expected.
+
+testceilingNullKey():
+	Test the bad input of ceiling function, when the argument is null, an IllegalArgumentException happened.
+
+testceilingEmptyKey:
+	Test the bad input of ceiling function, when the tree is empty, an NoSuchElementException happened.
+
+testCeiling():
+	Test the regular situation of ceiling function, the test result is the same as expected.
+
+testNullCeiling():
+	Test the bad input of ceiling function, when input a node that does not exist, the result is null.
+
+testLeftCeiling():
+	Test the specific situation of ceiling function, when the range is not included in the tree, the test result is the same as expected.
+
+testSameCeiling():
+	Test the specific situation of ceiling function, when the range is exactly the tree, the test result is the same as expected.
+
+testRankNull():
+	Test the bad input of rank function, when the argument is null, an IllegalArgumentException happened.
+
+testRankEmpty():
+	Test the bad input of rank function, when the tree is empty, the result is 0.
+
+testKeyNullLow():
+	Test the bad input of keys function, when the low argument is null, an IllegalArgumentException happened.
+
+testKeyNullHigh():
+	Test the bad input of keys function, when the high argument is null, an IllegalArgumentException happened.
+
+testKeys():
+	Test the regular situation of keys function, the test result is the same as expected.
+
+testKeys2():
+	Test the specific situation of keys function, when the range is smaller than the tree, the test result is the same as expected.
+
+testKeys3():
+	Test the specific situation of keys function, when the range is larger than the tree, the test result is the same as expected.
+
+testNullSizeLow():
+	Test the bad input of size function, when the low argument is null, an IllegalArgumentException happened.
+
+testNullSizeHigh():
+	Test the bad input of size function, when the high argument is null, an IllegalArgumentException happened.
+
+testSize():
+	Test the regular situation of size function, the test result is the same as expected.
+
+test0Size():
+	Test the specific situation of size function, when the tree’s size is 0, the test result is the same as expected.
+
+testNegativeSize():
+	Test the specific situation of size function, when the low key is lager than the high key, the test result is the same as expected.

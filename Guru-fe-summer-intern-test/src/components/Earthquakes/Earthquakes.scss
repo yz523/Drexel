@@ -1,0 +1,21 @@
+.Earthquakes {
+  margin: auto;
+  max-width: 1000px;
+  width: 100%;
+
+  .Earthquakes__table-scroller {
+    background-color: #f5f5f5;
+    box-shadow: 0px 8px 14px 0px rgba(68, 52, 77, 0.16),
+      0px 4px 6px 0px rgba(46, 32, 54, 0.24);
+    max-height: 70vh;
+    overflow: auto;
+  }
+
+  .Earthquakes__table {
+    border-collapse: collapse;
+    border-right: 1px solid #bab0bf;
+    border-top: 1px solid #bab0bf;
+    min-width: 100%;
+    table-layout: fixed;
+  }
+}

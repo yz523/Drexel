@@ -1,0 +1,6 @@
+1. Type "make build" first which prepare the program(files)
+2. The "assn4" file is not executable before "make build"
+3. The "make clean" can remove .class file and the temp file(drawer)
+4. Not sure how to check the returned status code without output them to the
+prompt(as required). So I wrote the expected results in the comments for each
+step and printed out several times by myself.(works and correct)

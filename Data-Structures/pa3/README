@@ -1,0 +1,52 @@
+=====================For 1 & 2:=====================
+It will take a few minutes to execute the openhash and closedhash since the input file is large.
+Everything is completed.
+
+=====================For 4 & 5 & 7:=====================
+trie determines size as the number of nodes, including the root and the end of word nodes
+the adjacency matrix for both dijkstra and floyd is in a text document for convenience. It uses the value 8000 as a placeholder for infinity, as it is sufficiently large compared to the other values.
+
+=====================For 8 & 9:=====================
+###########################################################################
+#  1. Implementation of DFS on directed graph with node numbering         #
+#  2. Implementation of FFT using dyadic size and any size                #
+#  ========================================================================
+#  Name: Shannon Miles                                                        #
+#  Assignment: PA3                                                       #
+#  Date:  8/26/16                                                      #
+#  Language Used: C++                                                     #
+###########################################################################
+
+
+Contents
+--------
+Makefile                  [ makefile to compile and run the problem targets ]
+README                    [ this file ]
+digraph.h digraph.cpp     [ header/implementation files for directed graph ]
+dfs.h  dfs.cpp            [ header/implementation files for Depth-First-Search (DFS) of directed graph ]
+dfstest.cpp               [ code for testing dfs.h and dfs.cpp ]
+fft.cpp                   [ code for implementation and testing FFT ]
+
+
+Compiling and Running the programs
+----------------------------------
+make dfs             [ compile and run code for testing DFS ]
+make fft             [ compile and run the code for FFT ]            
+
+
+Cleaning the programs and object files
+--------------------------------------
+make clean
+
+
+Comments
+--------
+1. directed graph (digraph.h, digraph.cpp) has been implemented using adjacency matrix
+2. ADT for directed graph has been implemented as per details in Chapter 6 in Alfred_Aho textbook supporting
+   the following operations:
+
+   FIRST(v, G)     -> returns the index for the first vertex adjacent to v in graph G
+   NEXT(v, i, G)   -> returns the index after index i for the vertices adjacent to v in graph G
+   VERTEX(v, i, G) -> returns the label of vertex after index i in the vertices adjacent to v in G
+
+3. In FFT any size factorization of n = r1r2 has been done where r1 is a prime divisor of n

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+        <head >
+                <title>Films</title>
+                <div class="header">
+                        <h1>SE-572-900</h1>
+                        <h3>Yiyun Zhang</h3>
+                </div>
+
+                        
+        </head>
+        <body>
+                <div>
+                        <form onsubmit="return API.createFilm()">
+                                <div class="film">
+                                        <h2>Add a film:</h2>
+                                        <input type="text" id="filmInput">
+                                        <div class="redAlert" id="filmRedAlert">
+                                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                                <strong>Failed!</strong> Please enter a valid flim name.
+                                        </div>
+                                        <div class="greenAlert" id="filmGreenAlert">
+                                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                                <strong>Success!</strong> Flim name submitted.
+                                        </div>
+                                </div>
+                                <div class="rating">
+                                        <h2>Add a rating:</h2>
+                                        <input type="text" id="ratingInput">
+                                        <div class="redAlert" id="ratingRedAlertEmpty">
+                                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                                <strong>Failed!</strong> Please enter a rating.
+                                        </div>
+                                        <div class="redAlert" id="ratingRedAlertInvalid">
+                                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                                <strong>Failed!</strong> Please enter a valid rating(0-10).
+                                        </div>
+                                        <div class="greenAlert" id="ratingGreenAlert">
+                                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                                <strong>Success!</strong> Rating submitted.
+                                        </div>
+                                </div>
+                                <div class="center">
+                                        <input type="submit" value="Submit" class="b1">
+                                </div>
+                              </form>
+                        <form onsubmit="return API.getFilms()" class="center">
+                                <input type="submit" value="Show" class="b2">    
+                        </form>
+                        
+                        <table id="myTable" class="center"></table>
+                </div>
+
+                        
+        </body>
+
+</html>
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script type="text/javascript" src="./films.js"></script>

@@ -1,0 +1,15 @@
+This program is a mini-database with sql-like operations. The data is stored in the plain file with corresponding name, separated by “:” and “;”.
+To run this program, first load it to tux. There a several running options builded in makefile:
+make run - produce the execution file called g1
+These some command line operations can be execute by g1
+./g1 SELECT * FROM TableName WHERE Field1="value"
+./g1 DELETE FROM TableName WHERE Field1="value"
+./g1 UPDATE TableName SET Field1="new value" WHERE Field2="value"
+./g1 INSERT INTO TableName (Field1="value", Field2="value", ...)
+./g1 CREATE TABLE TableName FIELDS [Field1, Field2, ...]
+./g1 DROP TABLE TableName
+For each step, the console output will print two tables, before and after the operation. It is easier for you to compare the changes.
+make view - read the source code of g1.c
+make clean - remove all execution file
+make test - run the test created by me
+The make test command is the easiest way to test this program, it contains all the test of operations built in the program. The data file for it is the plain text called “test”.

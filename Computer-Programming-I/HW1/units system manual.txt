@@ -1,0 +1,32 @@
+Program: units.cpp
+
+This program divide the fluid ounces to different units.
+
+The relationships between units are:
+
+1 fluid ounce = 2 tablespoons
+1 gill = 4 fluid ounces (fl oz)
+1 cup = 2 gills
+1 pint = 2 cups
+1 quart = 2 pints
+1 gallon = 4 quarts
+1 barrel = 42 gallons
+
+which means:
+
+1 tablespoons = 0.5 fluid ounces (fl oz)
+1 gill = 4 fluid ounces (fl oz)
+1 cup = 8 fluid ounces (fl oz)
+1 pint = 16 fluid ounces (fl oz)
+1 quart = 32 fluid ounces (fl oz)
+1 gallon = 128 fluid ounces (fl oz)
+1 barrel = 5376 fluid ounces (fl oz)
+
+The compute of the units is following these rules:
+
+1.Divide the input by the biggest number to smallest number (5376, 128, … , 0.5)
+   1.1 If the division answer is bigger than 0, let input become its remainder(using %), and continue doing division with next smaller number.
+   1.2 If the division answer is 0, the program will skip current step and doing next calculation automatically.
+2.Print out the answer.
+
+If you have any question or meet any problems, feel free to contact me: yz523@drexel.edu

@@ -1,0 +1,9 @@
+Socialite
+string LAST_NAME
+string FIRST_NAME
+string USER_ID
+string USER_PICTURE
+string WEBSITE_SHARE
+string WEBSITE_DESCRIPTION
+string cliques
+int numCliques

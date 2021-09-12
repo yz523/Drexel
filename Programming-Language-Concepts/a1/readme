@@ -1,0 +1,36 @@
+Yiyun Zhang
+yz523@drexel.edu
+
+For question 1 and 2, the answers are scm files. So they needed to be load in mit-scheme with command (load “q1”) and (load “q2”). The output should be:
+
+q1:
+My tree
+a:'(0 0)
+b:'(0 1)
+c:'(1 0)
+d:'(1 1 0)
+e:'(1 1 1 0)
+f:'(1 1 1 1)
+Encoding
+'(0 0 0 1 1 0 1 1 0 1 1 1 0 1 1 1 1)
+Decodeding
+'(a b c d e f)
+
+q2:
+0
+2
+4
+6
+'()
+
+The screenshots of these two output are also attacked with file name q1.png and q2.png.
+
+For question 3, I created a makefile to make it easier to use. Type “make run” will execute the q3.cpp file and output the answer automatically.
+The output should be:
+
+q3:
+Pre-order:B ( B e ) B ( B e ) B e 
+Post-ordere e e B ) B ( B ) B ( B 
+Height:10
+
+And “make clean” can clean all trash file, “make view” can view the source code for q3.cpp

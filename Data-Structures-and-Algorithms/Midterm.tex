@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{CS-521-900, Midterm}
+\author{Yiyun Zhang}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item 
+{\bf I)} $a=4, b=4, n^{\log_b a}=n, f(n)=4n+4, f(n)=O(n)$ Therefore $f(n)=n^{\log_b a}$, thus case 2. $T(n)=\theta (n^{\log_b a\log n)}=\theta(n\log n)$, which is $c.\theta(n\log n)$.
+
+{\bf II)} Since $T(n/3) \geq T(n/4)$, Therefore we can rewrite $T(n)$ to $T(n) \leq 3T(n/3)+n$ In this case, $a=3, b=3, n^{\log_b a}=n, f(n)=n$, thus case 2.  $T(n)=\theta (n^{\log_b a\log n)}=\theta(n\log n)$, which is $c.\theta(n\log n)$.
+
+{\bf III)} $T(n)=T(n-2)+n^2+n=T(n-4)+n^2+n^2+n+n=T(n-6)+n^2+n^2+n^2+n+n+n=...=T(\dfrac{n}{2}(n-2)+\dfrac{n}{2}n^2+\dfrac{n}{2}n)=\dfrac{n^3}{2}+\dfrac{n^2-2n}{2}+\dfrac{n^2}{2}=O(n^3)$Therefore, it is $e.\theta(n^3)$.
+
+{\bf III)} $T(0)=1,T(3)=5,T(6)=5^2,T(9)=5^3,T(12)=5^4...T(n)=5^{n/3}$ Therefore, it is $g.\theta(5^{n/3})$.
+
+\item
+{\bf I)}
+\begin{verbatim}
+1 Select(A,p,q,i){
+2   Divide A to n/5 groups of size 5
+3   Find the median of each group of 5 by brute force
+      and store them in a set A'of size n/5
+4    Use  Select(A',p,q,i) to find the median x of n/5 medians
+5    Partition the n elements around x. Let k=q-p+1(rank of x)
+6    if (i==k):
+7      return A[n/3] to A[2n/3] 
+8    if(i>n/3):
+9      Select(A,n/3,q,(i-n/3))
+10   if(i<2n/3):
+11     Select(A,2n/3,q,i)
+12 }
+\end{verbatim}
+Similar to the original $Select$ Algorithm, since we only need n/3 of the elements between n/3 to 2n/3, so we don't have to sort the elements smaller then the pivot n/3 or the elements larger than pivot 2n/3. Therefore the complexity is $T(n)=T(n/5)+T(3n/4)+\theta(1/3n)=\theta(n)$
+
+{\bf II)}
+\begin{verbatim}
+1 Select(A,p,q,i){
+2   Divide A to n/5 groups of size 5
+3   Find the median of each group of 5 by brute force
+      and store them in a set A'of size n/5
+4    Use  Select(A',p,q,i) to find the median x of n/5 medians
+5    Partition the n elements around x. Let k=q-p+1(rank of x)
+6    if (i==k):
+7      return A[n/3] to A[2n/3] 
+8    if(i>n/3):
+9      Select(A,n/3,q,(i-n/3))
+10   if(i<2n/3):
+11     Select(A,2n/3,q,i)
+12 }
+13 Quicksort(res,p,r)
+\end{verbatim}
+Since the size of $res$ is $n/3$, therefore the overall complexity is $\theta(n+n/3\log n/3)$.
+
+\item
+\begin{verbatim}
+1 Let y be the person number
+2 Select(A,p,q,i,y){
+3   Divide A to n/5 groups of size 5
+4   Find the median of each group of 5 by brute force
+      and store them in a set A'of size n/5
+5    Use  Select(A',p,q,i) to find the median x of n/5 medians
+6    Partition the n elements around x. Let k=q-p+1(rank of x)
+7    if (i==y):
+8      return x
+9    if(i>y):
+10      Select(A,p,k,i,y+1)
+11   if(i<y):
+12     Select(A,k.q.i-k,y-1)
+13 }
+\end{verbatim}
+The overall complexity is $\theta(\log n)$.
+
+\item
+{\bf I)}
+\begin{verbatim}
+1 A = combine(A,B), n = 2m
+2 Select(A,p,q,i){
+3   Divide A to n/5 groups of size 5
+4   Find the median of each group of 5 by brute force
+      and store them in a set A'of size n/5
+5    Use  Select(A',p,q,i) to find the median x of n/5 medians
+6    Partition the n elements around x. Let k=q-p+1(rank of x)
+7    if (i==k):
+8      return x 
+9    if(i<k):
+10      Select(A,p,k-1,i)
+11   else:
+12     Select(A,k,q,i-k)
+13 }
+\end{verbatim}
+Combine $A$ and $B$ to create the union, it takes constant time. Then use $Select()$ to find the median of the union. The complexity of the $Select()$ is $\theta(n)$. Therefore the overall complexity is $\theta(n)$. 
+
+
+{\bf II)}
+\begin{verbatim}
+1 Make A a min heap
+2 Make B a min heap
+3 Let newRoot = -infinity
+4 For each key level:
+5  newHeap.add(A.currentLevelElements)
+6  newHeap.add(B.currentLevelElements)
+7 End
+8 Heap-Extract-Max(newHeap)
+9 Find the median x of middle key level by brute force
+10 Return x
+\end{verbatim}
+Since $A$ and $B$ are sorted array, it takes constant time to build new heap(simply copy paste). $A$ and $B$ has the same size, therefore the size of the new heap is $2n$. Find the median x in the middle level by brute force take constant time. The $Heap-Extract-Max(newHeap)$ function calls $Heapify()$ which takes $O(\log n)$ time, therefore the overall complexity is $\theta(\log n)$
+
+\item
+\item
+
+\begin{table}[h!tb]
+\Large
+\centering
+{\begin{tabular}{ |c|c|c|c|c|c|c|c|c| }
+  \hline
+   & $A$ & $B$ & $O$ & $o$ & $\Omega$ & $\omega$ & $\Theta$ \\
+  \hline
+  a. & $lg^kn$ & $n^\epsilon$  & True & True & False & False & False\\ 
+  \hline
+  b. & $n^k$ & $C^n$  & True & True & False & False & False\\ 
+  \hline
+  c.  & $\sqrt{n}$ & $n^{sin(n)}$  & False & False & False & False & False\\ 
+  \hline
+  d. & $2^n$ & $2^{n/2}$  & False &False & True & True & False\\ 
+  \hline
+  e. & $n^{lgc}$ & $c^{lgn}$  & True &False & True & False & True\\ 
+  \hline
+  f. & $lg(n!)$ & $lg(n^n)$  & True & False & True & False & True\\
+ 
+
+  \hline
+\end{tabular}}
+\label{}
+\end{table}
+
+\end{enumerate}
+\end{document}

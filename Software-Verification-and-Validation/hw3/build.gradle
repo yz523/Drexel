@@ -1,0 +1,45 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    // Guava for contracts
+    compile 'com.google.guava:guava:23.0'
+    
+    // JUnit for tests
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-library:1.3'
+
+    // JUnit-QuickCheck for property-based testing
+    testCompile 'com.pholser:junit-quickcheck-core:0.7'
+    testCompile 'com.pholser:junit-quickcheck-generators:0.7'
+
+    // Mockito inline mocking
+    testCompile "org.mockito:mockito-inline:+"
+    
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+// This task only runs if 'test' has already run, i.e., "gradle test jacocoTestReport"
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
+}
+
+tasks.withType(Test) {
+    // Enable assertions (-ea) for tests
+    enableAssertions = true
+}
+

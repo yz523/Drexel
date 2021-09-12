@@ -1,0 +1,141 @@
+===================================Intro=====================================
+This lab is the implementation of mutex lock. To run this program, use command make run to run all 3 version(answer). After run the program, all result will be output in the console window. Command make clean can clean up the trash files.
+===================================Description===============================
+The first.c is the first version. The average time of 10 runs is:0.005332s In each run, the output of the counter is less than 100000. It is because it doesn’t have mutex locks, multiple threads visit and changed the value of counter at the same time, which cause the data loss/broken. 
+The second.c is the second version with mutex locks, the locks are in the for loop. THE average time is 0.627012s. The output of the counter is equal to 100000 in each run this time. It took more than 100 times time comparing to first version. 
+The third.c is the third version with mutex lock, the locks are outside the for loop. The average time is 0.005679s, which is quite close the time used in the first version.
+
+===================================Output====================================
+command: make run
+
+————————————Console————————————
+
+gcc first.c -o first.out -lpthread
+./first.out
+
+Run 1:
+counter:98976
+Time took: 0.006843s
+
+Run 2:
+counter:96816
+Time took: 0.006062s
+
+Run 3:
+counter:99040
+Time took: 0.004953s
+
+Run 4:
+counter:99193
+Time took: 0.005002s
+
+Run 5:
+counter:99421
+Time took: 0.004918s
+
+Run 6:
+counter:99356
+Time took: 0.004958s
+
+Run 7:
+counter:98929
+Time took: 0.004976s
+
+Run 8:
+counter:96502
+Time took: 0.005152s
+
+Run 9:
+counter:98691
+Time took: 0.005203s
+
+Run 10:
+counter:97550
+Time took: 0.005252s
+Average time run is 0.005332s
+gcc second.c -o second.out -lpthread
+./second.out
+
+Run 1:
+counter:100000
+Time took: 0.605850s
+
+Run 2:
+counter:100000
+Time took: 0.609614s
+
+Run 3:
+counter:100000
+Time took: 0.611285s
+
+Run 4:
+counter:100000
+Time took: 0.724904s
+
+Run 5:
+counter:100000
+Time took: 0.638154s
+
+Run 6:
+counter:100000
+Time took: 0.669074s
+
+Run 7:
+counter:100000
+Time took: 0.594062s
+
+Run 8:
+counter:100000
+Time took: 0.593562s
+
+Run 9:
+counter:100000
+Time took: 0.589496s
+
+Run 10:
+counter:100000
+Time took: 0.634114s
+Average time run is 0.627012s
+gcc third.c -o third.out -lpthread
+./third.out
+
+Run 1:
+counter:100000
+Time took: 0.006041s
+
+Run 2:
+counter:100000
+Time took: 0.005333s
+
+Run 3:
+counter:100000
+Time took: 0.005740s
+
+Run 4:
+counter:100000
+Time took: 0.005423s
+
+Run 5:
+counter:100000
+Time took: 0.005198s
+
+Run 6:
+counter:100000
+Time took: 0.006335s
+
+Run 7:
+counter:100000
+Time took: 0.005272s
+
+Run 8:
+counter:100000
+Time took: 0.006570s
+
+Run 9:
+counter:100000
+Time took: 0.005692s
+
+Run 10:
+counter:100000
+Time took: 0.005181s
+Average time run is 0.005679s

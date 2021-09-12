@@ -1,0 +1,19 @@
+Program: tuition.cpp
+
+This program computes the high school five year’s tuition. Including both each year’s and total years’.
+
+The compute of each year’s tuition is using formula:
+
+tuition = (1+rate)^(year) * 15000
+
+The initial tuition is 15000 dollars, the rate here is 0.05, and the rage of year is 1-5.
+
+The compute of total years’ tuition is:
+
+total += tuition
+
+Each time the tuition being calculated, the new value is added to total, and then got the total tuition of this 5 years.
+
+The variables tuition and year is integer, and the variable rate is double.
+
+If you have any question or meet any problems, feel free to contact me: yz523@drexel.edu

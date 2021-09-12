@@ -1,0 +1,1 @@
+For single cycle datapath, the L_INCR instruction's addi part implementation is add 4 to the data before store the data to the register. For this part, the logic changes that after the reading from register, and addi implemete first and then deal with the load word instruction.

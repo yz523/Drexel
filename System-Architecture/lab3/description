@@ -1,0 +1,1 @@
+The sc.png is the screenshot of the half adder waveform. The mux41b.vhd is the VHDL source for behavioral model and mux41bs.vhd is for structural model. The tbmxb.s is the test bench file for mux behavioral model, and tbmxs.s is the test bench file for structural model.

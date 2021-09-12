@@ -1,0 +1,70 @@
+Q1.	The add() function add word to suffix list and update the prefix. The addSuffix function add suffix to the hash table.
+Q2.	The lookup() function search a prefix in the table and check if the create is true, if it is true then create a table of the prefix. Functions add() and generate() call lookup()
+Q3. |=========|====|
+	|Prefix[0]|NULL|
+	|=========|====|
+	|Prefix[1]|NULL|
+	|=========|====|
+	|Suffix   |It's|    
+	|=========|====|
+	
+	|=========|====|
+	|Prefix[0]|NULL|
+	|=========|====|
+	|Prefix[1]|It's|
+	|=========|====|
+	|Suffix   |a   |    
+	|=========|====|
+
+	|=========|====|
+	|Prefix[0]|It's|
+	|=========|====|
+	|Prefix[1]|a   |
+	|=========|====|
+	|Suffix   |new |    
+	|=========|====|
+
+	|=========|====|
+	|Prefix[0]|a   |
+	|=========|====|
+	|Prefix[1]|new |
+	|=========|====|
+	|Suffix   |dawn|    
+	|=========|====|
+
+	|=========|====|
+	|Prefix[0]|new |
+	|=========|====|
+	|Prefix[1]|dawn|
+	|=========|====|
+	|Suffix   |NULL|    
+	|=========|====|
+
+a. "It's" - 3 references
+b. "a" - 3 references
+c. "new" - 3 references
+d. "dawn" - 2 references
+Q4. The memory is allocated exactly once for each string, the minimal amount of memory is used.
+Q5. The memory need to be free after execution. There are more than one reference for each string, it may cause the memory leak.
+Q6.	void cleanup(){
+		state* cl = NULL;
+		State* sp = NULL;
+		for (int i=0; i < NHASH; i++){
+			for(sp=statetab[i]; sp!=NULL; sp=cl){
+				sp->next = cl;
+				free(sp);
+			}
+		}
+}
+Q7. Yes. No difficulty
+Q8. Because the program check if the pointer exist first and then free each single pointer in the table. However, if the program try to free an empty location, the error will occur.
+Q9.	The prefixes are stored in a deque type. Because the deque allows efficient insetion at the front of the stucture as well as the back.
+Q10. Map type replace the hash table
+Q11. In a vector.
+Q12. Map, deque and vector are good types to store or create tables and prefixes. They already exist so programer don't have to create their own type. Pointers are not necessary to be used here.
+Q13. No memory management. Slower than C
+Q14. They are stored in the tuple
+Q15. Vlues sets in the dictionary type replace the hash table
+Q16. They are stored in the list type
+Q17. The code style is simple and clear. Pointers are still not necessary to be used here.
+Q18. Python is slower than C. Use more memory.

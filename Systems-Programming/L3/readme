@@ -1,0 +1,12 @@
+===================================Intro=====================================
+The first part is the implementation of using MapReduce algorithm to analyze big data. To run this program, use NODES=<value> make run. The output are sequentially answer the questions in part 1.
+The second part is use MapReduce algorithm to compute pi over 2,4,8,16 nodes. The code in p2.py is the source code, you can change the node variable and test it in pyspark. From the observation, the more nodes used in the program, the faster the run time is. The time graph is also attached.
+
+===================================Output====================================
+command: NODES=8 make run
+
+python p1.py DelayedFlights.csv 8
+The airport had the longest delays due to security and weather (combined) is: ATL
+The carrier had the longest delays due to carrier delays is: AA
+The the average total late aircraft delay for each airport is: 104148
+The the average total late aircraft delay for each carrier is: 1577846

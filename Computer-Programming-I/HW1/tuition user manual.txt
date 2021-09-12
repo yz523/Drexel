@@ -1,0 +1,17 @@
+Program: tuition.cpp
+
+This program computes the tuition of the high school, including each year’s tuition and total 5 year’s.
+
+1.Double click the program(tuition.cpp) and run it.
+2.There will be a line that let you write the initial amount of the tuition.
+   2.1 Please follow the hint and enter the correct number
+   2.2 If you enter the wrong number, please close the program and run it again.
+   2.3 Press enter to input the value and continue to next step.
+3.After enter the initial amount of the tuition correctly, there will be another line that let you write the increasing rate of the tuition.
+   3.1 Please follow the hint and enter the correct number
+   3.2 If you enter the wrong number, please close the program and run it again.
+   3.3 Press enter to input the value and continue to next step.
+4.The following five lines are the first five years’ tuition.
+5.The last line is the total tuition of the high school.
+
+If you have any question or meet any problems, feel free to contact me: yz523@drexel.edu

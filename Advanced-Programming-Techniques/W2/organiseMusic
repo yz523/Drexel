@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for s in *.mp3;do
+	art=${s%-*}
+   sn=$(s#-)
+	
+if[ -d "$art"]
+	then
+		mv "#s" "$art/$sn"
+	else
+		mkdir "$art"
+      mv "#s" "$art/$sn"
+fi
+done
+
+	

@@ -1,0 +1,11 @@
+#!/usr/bin/python
+
+import sys
+
+def list_concat_copy(A, B): 
+	C = []
+	for a in A:
+		if a in B:
+			A[:] = (v for v in A if v != a)
+	C = A + B
+	return C

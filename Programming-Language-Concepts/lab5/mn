@@ -1,0 +1,27 @@
+Theorem plus_sym: (forall n m, n + m = m + n).
+Proof.
+  intros n m.
+  elim n.
+  elim m.
+  exact (eq_refl (O + O)).
+  intros m'.
+  intros inductive_hyp_m.
+  simpl.
+  rewrite <- inductive_hyp_m.
+  simpl.
+  exact (eq_refl (S m')).
+  intros n'.
+  intros inductive_hyp_n.
+  simpl.
+  rewrite inductive_hyp_n.
+  elim m.
+  simpl.
+  exact (eq_refl (S n')).
+
+  intros m'.
+  intros inductive_hyp_m.
+  simpl.
+  rewrite inductive_hyp_m.
+  simpl.
+  exact (eq_refl (S (m' + S n'))).
+Qed.

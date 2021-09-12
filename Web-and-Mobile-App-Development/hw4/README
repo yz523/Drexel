@@ -1,0 +1,14 @@
+Yiyun Zhang(Benny)
+yz523
+CS275 - HW4
+
+To run this project, type node app.js in the terminal and open the browser to the localhost:8080 page. The index.html page will show in the browser.
+Click the menu button on the top left, you can see three options: home, computer and weather.
+For Home, if you click it, it always go to the main page.
+For Computer, in the text field, you can enter a positive integer, and choose the drop down options to do the calculation: n factorial or summation series.
+If the input is invalid, the corresponding hint will appear in the result division.
+The result will received the calculation result from server and show in the result division.
+For weather, you can enter zip code in text field, after that, click Go!
+The result will show in the bottom of the page, which is a forecast table shows 5 days/ 3 hours forecasts for the location in the zip code.
+If you enter invalid  Zip code, the result in the bottom will be "Invalid API key or Zip code."
+To exit the program, press ctrl-c to stop the server and close the web browser.

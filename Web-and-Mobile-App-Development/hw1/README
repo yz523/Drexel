@@ -1,0 +1,9 @@
+Yiyun Zhang(Benny)
+yz523
+CS275 - HW1
+
+To run this project, open yz523_HW1.html file in a web browser.
+You can input an integer in the middle of the web page, it will generate a fibonacci table with given length.
+If the input is empty or not an integer, it will show "Invalid Input".
+If the number is negative, it will show "Cannot conpute Fib of a negative integer".
+To stop this project, close the web page.

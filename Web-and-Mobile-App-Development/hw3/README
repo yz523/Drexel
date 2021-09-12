@@ -1,0 +1,9 @@
+Yiyun Zhang(Benny)
+yz523
+CS275 - HW3
+
+To run this project, type node app.js in the terminal and open the browser to the localhost:8080 page. The yz523_HW3.html page will show in the browser.
+In the text field, you can enter a positive integer, and choose the drop down options to do the calculation: n factorial or summation series.
+If the input is invalid, the corresponding hint will appear in the result division.
+The result will received the calculation result from server and show in the result division.
+To exit the program, press ctrl-c to stop the server and close the web browser.

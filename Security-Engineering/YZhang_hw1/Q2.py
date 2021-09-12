@@ -1,0 +1,8 @@
+print("a:")
+print("= 2^88 / 2^40 = 2^48 =", pow(2,48), "seconds =", (pow(2,48)/365/24/60/60), "years")
+print()
+print("b:")
+print("= 2^112 / 2^40 = 2^72 =", pow(2,72), "seconds =", (pow(2,72)/365/24/60/60), "years")
+print()
+print("c:")
+print("= 2^256 / 2^40 = 2^216 =", pow(2,216), "seconds =", (pow(2,216)/365/24/60/60), "years")

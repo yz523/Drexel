@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <!--Head. I don't think this will need to change much-->
+  <head>
+    <title>A Multiplayer Game</title>
+    <!--Custom style sheet-->
+    <link type="text/css" rel="stylesheet" href="/static/styles.css"/>
+    <!--Socket.io-->
+    <script src="socket.io/socket.io.js"></script>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Bootstrap stuff-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <!--Body. This is also where we will create the UI elements-->
+  <body>
+
+    <h1 style="text-align: center">Super Ultra Ultimate Soccer</h1>
+    
+    <div class="game-container">
+      
+      <!--Log in/create account page-->
+      <div class="ui-page card" id="account-page">
+        <div class="container d-flex h-100">
+          <div class="row justify-content-center align-self-center" style="width: 100%">
+            <form style="width: 500px">
+              <label for="username"><b>Username</b></label>
+              <input type="text" class="form-control" id="username" placeholder="Enter Username"><br>
+              <small id="login-err" class="form-text" style="color:red"></small>
+              <div style="height:20px"></div>
+              <button id="crt-btn" type="button" class="btn btn-primary" onclick="create()">Create</button>
+              <button id="lgn-btn" type="button" class="btn btn-primary" onclick="login()">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--Server select and stats page-->
+      <div class="ui-page card" id="server-page">
+
+        <!--Player stats-->
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <b>Username: </b>
+              <div id="username-display">Filler</div>
+            </div>
+            <div class="col-sm">
+              <b>Wins:</b>
+              <div id="win-count">0</div>
+            </div>
+            <div class="col-sm">
+              <b>Losses:</b>
+              <div id="lose-count">0</div>
+            </div>
+            <div class="col-sm">
+              <b>Total Goals:</b>
+              <div id="goal-count">0</div>
+            </div>
+          </div>
+        </div>
+        
+        <!--Server select-->
+        <hr>
+        <form>
+          <label for="room">Room Name</label>
+          <input class="form-control" id="room" type="text" placeholder="room"/><br>
+          <button id="crt-rm-btn" type="button" class="btn btn-primary" onclick="createRoom(); refresh()">Create Room</button>
+          <button type="button" class="btn btn-primary" onclick="refresh()">Refresh Rooms</button>
+          <br>
+          <br>
+          <select class="form-control" id="room-list" multiple size="7"></select>
+          <br>
+          <button id="start-btn" type="button" class="btn btn-primary" onclick="joinRoom(); hideServerPage(); showCanvas(); showLeaveButton()">Start Game!</button>
+          <br>
+          <br>
+          <button type="button" class="btn btn-primary" onclick="hideServerPage(); showAccountPage()">Logout</button>
+        </form>
+      </div>
+      
+      <!--Canvas-->
+      <canvas id="canvas"></canvas><br>
+
+      <!--Leave Game Button-->
+      <div class="leave-button-container" id="leave-button">
+        <button type="button" class="btn btn-primary leave-button" onclick="leave()">Leave</button>
+        <h3 id="msg-div" style="float: right"></h3>
+      </div>
+
+    </div>
+    
+    <!--All scripts that affect the canvas need to be defined in the body after the canvas element-->
+    <script src="/static/canvas.js"></script>
+    <script src="/static/game.js"></script>
+    <script src="/static/interface.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

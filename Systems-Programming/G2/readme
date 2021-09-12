@@ -1,0 +1,92 @@
+=====================================Intro===============================
+This program is a chat program using RSA crypto system. The connection is between a server and a client.
+
+To run this program, first open a port on the server, by using command:
+PORT=<value> E=<value> C=<value> D=<value> DC=<value> make server
+
+After that, a client can be connect to the server by this command:
+SERVER=<value> PORT=<value> E=<value> C=<value> D=<value> DC=<value> make client
+Notice, the SERVER and PORT value must be exist and open, otherwise there will be no connection.
+
+To generate a key, use command:
+MPRIME=<value> NPRIME=<value> make genkey
+The output will be the public and private key set.
+
+To test the crack program, use command 
+E=<value> C=<value> make keycrack
+It allows user inputs to show the corresponding letter related to the number
+
+Here is the tests on my local device:
+=======================================Test================================
+command: PORT=8080 E=5051 C=2623 D=2291 DC=2623 make server
+command: SERVER=localhost PORT=8080 E=5051 C=2623 D=2291 DC=2623 make client
+
+———————————————————————————————————————
+Console output:
+
+——————————Client side——————————
+Enter the input: This
+Encrypt result: 2295 478 1104 2226 
+
+Enter the input: is
+Encrypt result: 1104 2226 
+
+Enter the input: a
+Encrypt result: 838 
+
+Enter the input: test
+Encrypt result: 2213 1493 2226 2213 
+
+—————————Server side:———————————
+Encrypted input: 2295 478 1104 2226 
+Decrypte result: This
+
+Encrypted input: 1104 2226 
+Decrypte result: is
+
+
+Encrypted input: 838 
+Decrypte result: a
+
+
+Encrypted input: 2213 1493 2226 2213 
+Decrypte result: test
+——————————————————————————————————————
+command: MPRIME=13 NPRIME=17 make genkey
+
+———————————————————————————————————————
+Console output:
+
+13th prime=43 17th prime=61 c=2623 m=2520 e=5051 d=2291
+Public Key:(5051,2623)
+Private Key:(2291,2623)
+———————————————————————————————————————
+command: E=5051 C=2623 make keycrack
+
+———————————————————————————————————————
+Console output:
+
+c=2623 m=2520 e=11 d=2291
+Public Key:(11,2623)
+Private Key:(2291,2623)
+
+Enter the value to decrypt:2295
+The value is:T
+Enter the value to decrypt:478
+The value is:h
+Enter the value to decrypt:1104
+The value is:i
+Enter the value to decrypt:2226
+The value is:s
+Enter the value to decrypt:
+———————————————————————————————————————
+====================================Run on Tux===================================
+Here are the commands for running on tux. The only important thing is the server value changed.
+
+PORT=8080 E=1337 C=65535 D=3371 DC=65533 make server
+SERVER=tux64-11.cs.drexel.edu PORT=8080 E=1337 C=65535 D=3371 DC=65533 make client
+MPRIME=8 NPRIME=13 make genkey
+E=1337 C=65535 make keycrack
+
+====================================bugs and summary=============================
+I have to say this is a really difficult assignment, it took me more than 15 hour to finish it. For server and client part, there is not too much to say, it is quite similar to the class powerpoint and the lectures. For RSA part, I did a lot of test, most of the time it works, but sometimes the server side doesn’t output the decrypted information(especially when there are big numbers). I think it is because the decrypt algorithm has some problems. For key generation part, it works normally, the only thing confused me is the calculation of e, in the homework website page the e of 13th and 17th prime is 451(in the picture), but as the explanation below, e should be bigger than m*2. However, in the program I did the explanation said, search e upwards from m*2. For crack part, it works normal as well, input a value and the corresponding decrypted letter will be output. I don’t have time to do the intercept traffic part, since it is too difficult and there is a lab to do, I give up.

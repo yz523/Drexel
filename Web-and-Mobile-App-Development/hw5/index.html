@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!--  jQuery Mobile CSS -->
+    <link type="text/css" rel="stylesheet"
+          href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+
+    <title>Assignment 5</title>
+</head>
+<body>
+<div data-role="panel" id="mypanel">
+    <a onClick="home()" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+    <a onClick="hw5()" class="ui-btn ui-icon-home ui-btn-icon-left">University</a>
+
+</div>
+<div data-role="header" data-position="fixed">
+    <a data-rel="close" href="#mypanel">Menu</a>
+    <h1>Assignment 5</h1>
+</div>
+<div data-role="footer" data-position="fixed">
+    <h1>Yiyun Zhang</h1>
+</div>
+<div data-role="main" id="main">
+    <img src="https://cdn.sidefx.com/media/uploads/school/drexel/drexel_logo_banner.jpg" width="1300" height="700">
+</div>
+
+<!-- Optional JavaScript -->
+<script>
+    function home(){
+        document.getElementById("main").innerHTML = "<img src=\"https://cdn.sidefx.com/media/uploads/school/drexel/drexel_logo_banner.jpg\" width=\"1300\" height=\"700\">";
+    }
+
+    function hw5() {
+        var URL = "http://localhost:8080/render";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "html",
+            success: function(msg) {
+                var json = msg;
+                document.getElementById("main").innerHTML = json;
+            },
+            error: function(xhr){
+                document.getElementById("main").innerHTML = "Unable to connect to the server";
+            }
+        });
+    }
+
+    function getTable(){
+        var sel = $("#sel").val();
+        var URL = "http://localhost:8080/getTable";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {sel},
+            dataType: "html",
+            success: function(msg) {
+                var json = msg;
+                document.getElementById("result").innerHTML = json;
+            },
+            error: function(xhr){
+                document.getElementById("result").innerHTML = "Can NOT connect to server";
+            }
+        });
+    }
+
+    function getTable2(){
+        var sel1 = $("#sel1").val();
+        var sel2 = $("#sel2").val();
+        var URL = "http://localhost:8080/getTable2";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {sel1,sel2},
+            dataType: "html",
+            success: function(msg) {
+                var json = msg;
+                document.getElementById("result2").innerHTML = json;
+            },
+            error: function(xhr){
+                document.getElementById("result2").innerHTML = "Can NOT connect to server";
+            }
+        });
+    }
+</script>
+
+<!--jQuery Mobile JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+<!--jQuery first, then Popper.js, then Bootstrap JS  -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

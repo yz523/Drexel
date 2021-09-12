@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+  <title>Assignment 1</title>
+</head>
+<body>
+  <div class="p-3 mb-2 bg-dark text-white">
+    <h1>Part1&2 - HTML Page</h1>
+    <h2>Fibonacci sequence</h2>
+    <ul>
+      <li><p>The Fibonacci sequence is a series of numbers where a number is found by adding up the two numbers before it. Starting with 0 and 1, the sequence goes 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, and so forth. Written as a rule, the expression is xn = xn-1 + xn-2.</p></li>
+      <center><img src="https://cdn.elearningindustry.com/wp-content/uploads/2017/09/dd7620fc0fceffcce27b5d11c5c01a96.png" width="500" height="330"></center>
+      <br>
+      <li><p>Named after Fibonacci, also known as Leonardo of Pisa or Leonardo Pisano, Fibonacci numbers were first introduced in his Liber abaci in 1202. The son of a Pisan merchant, Fibonacci traveled widely and traded extensively. Math was incredibly important to those in the trading industry, and his passion for numbers was cultivated in his youth.</p></li>
+      <li><p>Knowledge of numbers is said to have first originated in the Hindu-Arabic arithmetic system, which Fibonacci studied while growing up in North Africa. Prior to the publication of Liber abaci, the Latin-speaking world had yet to be introduced to the decimal number system. He wrote many books about geometry, commercial arithmetic and irrational numbers. He also helped develop the concept of zero.</p></li>
+    </ul>
+  </div>
+  <div class="p-3 mb-2 bg-secondary text-white">
+    <h1>Part3,4&5 - JavaScript</h1>
+    <form>
+     <div class="form-group">
+      <label for="integer">Enter an integer:</label>
+      <input type="text" class="form-control" id="text">
+    </div>
+    <button type="button" class="btn btn-default" onclick="createTable(this.form)">Compute!</button>
+  </form>
+</div>
+<div class="p-3 mb-2 bg-dark text-white" id="result">
+</div>
+<div class="p-3 mb-2 bg-secondary text-white">
+  <h3>Reference Source:</h3>
+  <h5><a href="https://www.livescience.com/37470-fibonacci-sequence.html" class="text-light">What is the Fibonacci Sequence?</a></h5>
+  <p>By Elaine J. Hom, LiveScience Contributor | June 14, 2013 06:36pm ET</p>
+</div>
+
+
+<!-- Optional JavaScript -->
+<script>
+  function createTable(form){
+    var input = form.text.value;
+    var inputInt = parseInt(input);
+    if(isNaN(inputInt)){
+      document.getElementById("result").innerHTML = "Invalid Input";
+    }
+    else if(inputInt<0){
+      document.getElementById("result").innerHTML = "Cannot compute Fib of a negative integer";
+    }
+    else{
+      var left = 0;
+      var right = 1;
+      var tmp = 0;
+      var i = 0;
+      var table = "<table class='table'><thead><tr><th scope='col'>n</th><th scope='col'>Fib(n)</th></tr></thead><tbody>";
+      for (i=0;i<=inputInt;i++) {
+        if(i==0){
+          table = table + "<tr><th scope='row'>"+i+"</th><td>"+0+"</td></tr>";
+        }
+        if(i==1){
+          table = table + "<tr><th scope='row'>"+i+"</th><td>"+1+"</td></tr>";
+        }
+        if(i>=2){
+          tmp = right;
+          right = left+right;
+          left = tmp;
+          table = table + "<tr><th scope='row'>"+i+"</th><td>"+right+"</td></tr>";
+        }
+      }
+      table = table + "</tbody></table>";
+      document.getElementById("result").innerHTML = table;
+    }
+  }
+</script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

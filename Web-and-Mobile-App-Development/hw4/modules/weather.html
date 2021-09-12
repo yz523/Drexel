@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery Mobile CSS -->
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <title>Assignment 2</title>
+</head>
+<body>
+<div class="p-3 mb-2 bg-dark text-white" data-role="header" data-position="fixed">
+    <h1>Weather</h1>
+</div>
+<div class="p-3 mb-2 bg-secondary text-white">
+    <form>
+        <div class="form-group" >
+            <label for="zip">Enter your Zip Code:</label>
+            <input type="text" class="form-control" id="textin">
+        </div>
+        <button type="button" class="btn btn-default" onclick="weather()">Go!</button>
+    </form>
+</div>
+<div class="p-3 mb-2 bg-dark text-white" id="result">
+</div>
+<div class="p-3 mb-2 bg-dark text-white" data-role="footer" data-position="fixed">
+    <h1>CS 275</h1>
+</div>
+
+<!--JavaScript -->
+<script>
+    function weather(){
+        var zipcode = $("#textin").val();
+        var URL = "http://localhost:8080/weather";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {zipcode},
+            dataType: "html",
+            success: function(msg) {
+                var json = msg;
+                document.getElementById("result").innerHTML = zipcode;
+            },
+            error: function(xhr){
+                document.getElementById("result").innerHTML = "Invalid API key or Zip code.";
+            }
+        });
+    }
+</script>
+
+<!--jQuery Mobile JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+<!--jQuery first, then Popper.js, then Bootstrap JS  -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

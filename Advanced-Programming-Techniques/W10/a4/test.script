@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#no argument provided. Expected output: No argument privided!. Expected return code: 1
+./assn4
+
+#Unable read/write file for purchase. Expected output: nothing. Expected return code: 4
+./assn4 purchase 38 = 8 0 1 1
+
+#Unable read/write file for change. Expected output: nothing. Expected return code: 4
+./assn4 change 20 = 5 1 1 0
+
+#Unable read/write file for report. Expected output: nothing. Expected return code: 4
+./assn4 report
+
+#bad agruments for init. Expected output: nothing. Expected return code: 1
+./assn4 init 2 - 2 3
+
+#amount not jibe for init. Expected output: nothing. Expected return code: 2
+./assn4 init 10 = 10 1 0 1
+
+#success try for init. Expected output: nothing. Expected return code: 0
+./assn4 init 47 = 7 2 1 1 
+
+#bad arguments for purchase. Expected output: nothing. Expected return code: 1
+./assn4 purchase 38 = 1
+
+#amount money less then price. Expected ouput: nothing. Expected return code: 2
+./assn4 purchase 20 = 1 1 1 0
+
+#insufficient change for purchase. Expected output: nothing. Expected return code: 3
+./assn4 purchase 10 = 0 0 5 0
+
+#success try for purchase. Expected output: 3 0 0 0. Expected return code : 0
+./assn4 purchase 17 = 0 0 0 1
+
+#bad arguments for change. Expected output: nothing. Expected return code: 1
+./assn4 change 3 2 8 8
+
+#amount not jibe for change. Expected ouput: nothing. Expected return code: 2
+./assn4 change 1 2 3 2 = 1 2 3 1
+
+#insufficient change for change. Expected ouput: nothing. Expected return code: 3
+./assn4 change 0 0 0 1 = 10 2 0 0
+
+#success try for change. Expected output: 0 2 1 0. Expected return code: 0
+./assn4 change 0 0 0 1 = 0 2 1 0
+
+#bad arguments for report. Expected output: nothing. Expected return code: 1
+./assn4 report 2
+
+#success try for report. Expected output: 17 : 64 = 4 0 0 3
+./assn4 report

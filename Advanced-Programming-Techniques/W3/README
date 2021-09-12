@@ -1,0 +1,4 @@
+1. At the top there is a global variable called req, I tried to change its value in the awk part, but it seems not work, therefore the </require> doesn't appear correctly
+2. I have set up an array so that it contain all existed file(dictory) while reading the README file, but I don't know why it doesn't work in the last step
+3. The code that check $file is a file or dictory always return the file result, maybe the problem is here: for file in $(ls $dir)
+4. I have tried a lot of ways to solve each parts of these problems, but I still can't figure them out by myself.

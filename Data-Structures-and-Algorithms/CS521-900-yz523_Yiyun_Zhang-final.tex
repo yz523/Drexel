@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{CS-521-900, Final}
+\author{Yiyun Zhang}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item {\bf a)} 
+Let the proportional be $a$, each node has $b$ children, then the running time is $T(n) = a*T(n/b)+cn$. Therefore if $a<b$, the time complexity is $O(n)$, if $a=b$, the time complexity is $O(n\log n)$, if $a>b$, the time complexity is $O(n^{\log_b a})$,
+
+{\bf b)} A topological sort is useful for $make$. Each vertice is a file, the vertices are connected to each other. For every directed edge [u,v], u comes before v in the ordering.
+
+{\bf c)}
+\begin{verbatim}
+1  Sort(A) { 
+2    d = the largest number's digits
+3    for i = 0, i<d, i++:
+4      digitSort(A,i)
+5  }
+6  digitSort(A,d) {
+7    max = the largest element in current place
+8    count = 0, countArray = []
+9    for i = 0, i < A.size, j++:
+10     for each unique digit in the elements in curent place, count++
+11     countArray[i] = count
+12   for j = 1, j < max, j++:
+13     sum = cumulative sum
+14     countArrcy = sum
+15   for i = size, i>1, i--:
+16     A[i] = countArray[i]
+17     count--
+18  }
+19  Find(A) {
+20    For i = 1, i < A.size, i++:
+21      if(A[i]==A[i-1]):
+22        return A[i] 
+23  }
+\end{verbatim}
+
+\item
+Base case: When n = 0, there is no node, therefore it is true. \\
+Assume a red-black tree T with n key-bearing nodes has at least n/3 black nodes: \\
+For a red-black tree Q with n+1 key-bearing nodes: if the extra node is black, then it has at least n/3+1 black nodes, which means at least n/3 black nodes. If the extra node is red, it must have two black children, therefore the tree Q at least has n/3+2 black nodes, which is at least n/3 black nodes. Therefore the statement is true.
+
+\item
+\begin{verbatim}
+1 count = 1, result = []
+2 for i = 0, i < A.size, i++:
+3   if A[i+1] < A[i]:
+4     find the next minimum number
+5   else
+6     find the next maxmum number
+7   if(minimum number found):
+8     counter++
+9     result.add(min)
+10  else if(maxmum number found)
+11    counter++
+12    list.add(max)
+13  return result.size
+\end{verbatim}
+
+Loop invariant: The first number in the result list is always larger than the next element. \\
+Initialization: Before the loop starts, the list is empty, so it is true. \\
+Maintenance: For each loop, $result[0]$ is always larger then result[1] because A[i] and A[i+1] is added to the end of the list, where $result[0]$ and $result[1]$ is the first two elements of the current longest osciallating sub-sequence, which by definitation $X[i] > X[i+1]$ for all odd i, it is also true for A[i+1], therefore it is true. \\
+Termination: When the loop ends, the result list has the longest osciallating sub-sqeuence, which by definitation $X[i] > X[i+1]$ for all odd i, therefore it is true. \\
+The running time is $O(n^2)$
+
+\item
+\begin{verbatim}
+1  w = weight of [u,v]
+2  findMax(T,w) {
+3    for u, v in V
+4      max[u,v] = null
+5    x = null
+6    recFunction(x,u)
+7    while x != null
+8      y = recFunction(x)
+9      for v in T's adjacent element y
+10       if max[u,v] == null and u != v
+11         if y == u or weight of [y,v] > max[u,y]
+12           max[u,v] = (y, v)
+13         else
+14           max[u,v] = max[u,y]
+15         recFunction(x,v)
+16  return max[u,v]
+\end{verbatim}
+If u and v are adjacent, the max weight edge is [u,v], so the running time is constant. Otherwise, the algorithm is $O(|V|^2)$ since 
+
+\end{enumerate}
+\end{document}

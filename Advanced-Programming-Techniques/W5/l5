@@ -1,0 +1,45 @@
+Q1. List: The list is a set of items, each with data and a pointer to the next item. The head of the list is a pointer to the first item and the end of the list is marked by a null pointer.
+	Stack: The stack is a limited access data structure that elements can be added and removed only from the top.
+	Queue: The queue is a linear collection that insert and remove according to the first-in first-out principle.
+	Dictionary(Map): The dictionary is associative arrays which are indexed by keys, it can be any immutable type.
+Q2.	The binary search at most compare log2(n) elements. Because binary search eliminated half the data at each step and do the comparision.
+Q3.	The linear search at most compare n elements. Because linear search compare all the elements one by one.
+Q4.	When the elements are not sorted, then the binary search won't work and linear search would be preferable.
+Q5. *84* 37 93 82 98 27 63 73 93 27 75 55 45 8
+	*84* 37 8 82 98 27 63 73 93 27 75 55 45 93
+	*84* 37 8 82 45 27 63 73 93 27 75 55 98 93
+	*84* 37 8 82 45 27 63 73 55 27 75 93 98 93
+	75 37 8 82 45 27 63 73 55 27 *84* 93 98 93
+	*75* 37 8 82 45 27 63 73 55 27 | *93* 98 93
+	*75* 37 8 27 45 27 63 73 55 82 | *93* 93 98
+	55 37 8 27 45 27 63 73 *75* 82 | 93 93 98
+	*55* 37 8 27 45 27 63 73 75 | 82 | 93 93 98
+	27 37 8 27 45 *55* 63 73 75 | 82 | 93 93 98
+	*27* 37 8 27 45 55 | *63* 73 75 | 82 | 93 93 98
+	*27* 27 8 37 45 55 | 63 73 75 | 82 | 93 93 98
+	*27* 8 27 37 45 55 | 63 73 75 | 82 | 93 93 98
+	8 *27* 27 37 45 55 | 63 73 75 | 82 | 93 93 98
+	8 27 27 37 45 55 | 63 73 75 | 82 | 93 93 98
+Q6. l->06->24->3
+Q7. L->[13,[28,[24, None]]]
+Q8. The difference is because of the pointer s is allocated 100 bytes of memory, but the buffer is unchanged.
+Q9.	0
+	1
+	2
+	3 [Cos, 86] -> [Bob, 38]
+	4 [Jaga, 24] -> [Kate, 28] -> [Nash, 11] -> [Vera, 99]
+	5 [Jesse, 78]
+	6
+Q10. 
+int find(char *key, int *p_ans){
+    entry *d;
+    int h = hash(key);
+        for( d=table[h];key!=d->key;d=d->next){
+            if(strcmp(d->key,key)==0){
+                key = d->key;
+                p_ans = &d->val;
+                return 1;
+            }
+        }
+    return 0;
+}

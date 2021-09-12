@@ -1,0 +1,11 @@
+Q1.1: A segmentation fault happened. A file named core created.
+Q1.2: In inTable() function and main() function.
+Q1.3: 
+	 a: In the function main, the scanf() function call expect argument of int* , but the argument is int. So change scanf( "%d", n ) to scanf( "%d", &n ).
+	 b: In the function main, the printf() function call expect argument 2 is int but it is double, and expect argument 3 is double but it is int. So change printf("Pi=%d, n=%f\n", pi, n) to  printf("Pi=%f, n=%d\n", pi, n).
+	 c: In the inTable() function and main() function. The second argument of function inTable( const char *s ) is a char *, but in the if condition it is s. Change  if( strcmp( st[i], s ) == 0 ) to if( strcmp( st[i], &s ) == 0 ).
+	 d: In the function main. The second argument of function scanf("%d",n) should be int *, but it is int. So change scanf("%d",n) to scanf("%d",&n).
+	 e: quicksortBug.c: In the quicksort(). Print the pivot at each swap to check the algorithm is properly: printf(v). 
+	    driverBug.c: In the function main. The variable words is char *, the second argument of printf() function  should be char *. So change printf( "%s\n", words[i] ) to printf( "%s\n", &(words[i])).
+Q1.4: The compiler only detect syntax or logic errors. It can't catch the error of what kind of type the value is when it passed.
+Q1.5: The segmentation fault will happen. 

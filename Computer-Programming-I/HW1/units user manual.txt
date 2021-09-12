@@ -1,0 +1,14 @@
+Program: units.cpp
+
+This program divide the fluid ounces to different units.
+
+1.Double click the program(units.cpp) and run it.
+2.There will be a line that let you write the data in fluid ounces.
+   2.1 You can write any integer number you want.
+   2.2 If you enter the wrong number, please close the program and run it again.
+   2.3 Press enter to input the value and continue to next step.
+3.The following first line is how much fluid ounces you typed in.
+4.The last 7 lines are the details that fluid ounces being divided to other units.
+
+
+If you have any question or meet any problems, feel free to contact me: yz523@drexel.edu

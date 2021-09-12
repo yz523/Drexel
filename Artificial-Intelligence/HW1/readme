@@ -1,0 +1,86 @@
+Yiyun Zhang(Benny)
+yz523
+CS380
+HW1
+============================================
+Part 1 is written problems. The answer is attached in the pdf file - HW1.pdf.
+For part A, all questions has been answered. For part B, I created two tables to list ’PEAS’.
+============================================
+Part 2 is Programming Assignment - Sliding Brick Puzzle
+The corresponding functions are in different class files, the order is the same as the assignment asked.
+For part A: State representation, the functions are in the state.java class file. The load function load the state file, the output prints the state, and clones function clone the original status.
+For part B, the function is in the state.java class file as well. It checks the competition of the game.
+For part C, the functions are in the Move.java class file. piecePossibleMove function returns a list of all the moves the piece can perform. allPossibleMove function returns all the moves that can be done in a board, using piecePossibleMove function. applyMove function performs the move in the state, and applyMoveCloning  first clones the state, and then applies the move.
+For part D, the function is in the state.java class file. compare two states’s status.
+For part E, the function is in the state.java class file, using the code provided from the assignment.
+For part F, the function is in the HW1.java file, randomwalks function execute the 5 steps asked by assignment.
+Before each function, the comment shows what it do and how it meet the requirements.
+============================================
+To use this program, type make in the console window.
+The makefile will execute and build class files.
+Then type java HW1 SBP-level0.txt 5, the output will printed in the console window.
+The sample output is:
+yz523@tux2:~/cs380/hw1$ make
+javac  Move.java
+javac  HW1.java
+yz523@tux2:~/cs380/hw1$ java HW1 SBP-level0.txt 5
+5,4,
+1,-1,-1,1,1,
+1,0,3,4,1,
+1,0,2,2,1,
+1,1,1,1,1,
+Possible move for piece3:[l]
+Possible move for piece4:[]
+Possible move for piece2:[l]
+
+(2,l)
+
+5,4,
+1,-1,-1,1,1,
+1,0,3,4,1,
+1,2,2,0,1,
+1,1,1,1,1,
+Possible move for piece3:[l]
+Possible move for piece4:[d]
+Possible move for piece2:[r]
+
+(4,d)
+
+5,4,
+1,-1,-1,1,1,
+1,0,3,0,1,
+1,2,2,4,1,
+1,1,1,1,1,
+Possible move for piece3:[r, l]
+Possible move for piece2:[]
+Possible move for piece4:[u]
+
+(3,r)
+
+5,4,
+1,-1,-1,1,1,
+1,0,0,3,1,
+1,2,2,4,1,
+1,1,1,1,1,
+Possible move for piece3:[l]
+Possible move for piece2:[u]
+Possible move for piece4:[]
+
+(3,l)
+
+5,4,
+1,-1,-1,1,1,
+1,0,3,0,1,
+1,2,2,4,1,
+1,1,1,1,1,
+Possible move for piece3:[r, l]
+Possible move for piece2:[]
+Possible move for piece4:[u]
+
+(3,r)
+
+5,4,
+1,-1,-1,1,1,
+1,0,0,3,1,
+1,2,2,4,1,
+1,1,1,1,1,

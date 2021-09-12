@@ -1,0 +1,8 @@
+Yiyun Zhang(Benny)
+yz523
+CS275 - Practicum Exam
+
+To run this project, type node app.js in the terminal and open the browser to the localhost:8080 page. The index.html page for part 1 will show automatically in the browser.
+In the dropdown menu, you can choose a route number and click load schedule, the result of detail vehicle information will show as a table.
+In part2 division, click Go to http://localhost:8080/part2?message=hello&count=4, it receives the html data from the server, the result is hellohellohellohello, which will show below. 
+To exit the program, press ctrl-c to stop the server and close the web browser.

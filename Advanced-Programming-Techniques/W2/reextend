@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if ["$1"="$2"]
+then
+	echo "The extension are the same."
+	exit 1 
+fi
+
+if ["$#"ls 2]
+then
+	echo "Please enter two extension."
+	exit 2
+fi
+
+for file in *$1; do
+	mv "$file" "${file%$1*}"$2""
+done

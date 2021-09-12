@@ -1,0 +1,33 @@
+Q1: When the shell is non-interactively, it invokes .bashrc, and when the shell is interactive login shell, it invokes .bash_profile.
+Q2: Completed and Submitted.
+Q3: The files were listed per line.
+Q4: The user can read & write on some_file, all others can only read.
+Q5: The user have all permissions and all others can only read and execute.
+Q6: Yes.
+Q7: Yes.
+Q8: Not successful.
+Q9: chmod 755 hello.bash
+    chmod u+rwx hello.bash
+Q10: The file can't be saved, because there is no write permission.
+Q11: ls * : show all files and directions.
+     ls a* : show all files that start with 'a'.
+     ls *m* : show all files that contain 'm'.
+     ls anno? : show all files that start with 'anno'.
+     ls annoy? : nothing shows.
+Q12: A new file called 'a' has been created.
+Q13: echo Is a < b? : No such file or directory.
+     echo "Is a < b?" : Is a < b ?.
+     echo "\$USER is $USER" : $USER is yz523
+     echo '\$USER is $USER' : \$USER is $USER
+     echo "Today is `date`" : Today is Sat Sep 26 14:36:48 EDT 2015
+     echo "Today is $(date)" : Today is Sat Sep 26 14:36:57 EDT 2015
+     echo 'Today is `date`' : Today is `date`
+     echo -e "Files that start w/e:\n`ls e*`" : ls: cannot access e*: No such file or directory
+     Files that start w/e:
+Q14: 'sort itemList-2cols' : sort the file by first number of each line.
+     'sort -n itemList-2cols' : sort the file by compare according to string numerical value
+Q15: sort -nr itemList-2cols | head -8
+Q16: The file is in lab1.tar.gz
+Q17: The file lab1.tgz is decompressed and become lab1.tar.
+Q18: grep -r "Vacation" ~/CS265/lab1
+Q19: find . -name "*lab1*" -print

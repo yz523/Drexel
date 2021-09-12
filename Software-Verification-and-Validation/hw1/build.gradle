@@ -1,0 +1,64 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+repositories {
+    mavenCentral()
+}
+
+ext.targetJavaVersion = JavaVersion.current().isJava8() ? JavaVersion.VERSION_1_8 : JavaVersion.VERSION_1_9
+
+configurations {
+    checkerFrameworkAnnotatedJDK {
+       description = 'a copy of JDK classes with Checker Framework type qualifers inserted'
+    }
+    checkerFramework {
+       description = 'The Checker Framework: custom pluggable types for Java'
+    }
+}
+
+dependencies {
+    // Guava for contracts
+    compile 'com.google.guava:guava:23.0'
+    
+    // JUnit for tests
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-library:1.3'
+
+    ext.checkerFrameworkVersion = '2.2.0'
+    ext.jdkVersion = JavaVersion.current().isJava8() ? 'jdk8' : 'jdk9'
+    checkerFrameworkAnnotatedJDK "org.checkerframework:${jdkVersion}:${checkerFrameworkVersion}"
+
+    // Checker Framework for static analysis
+    checkerFramework "org.checkerframework:checker:${checkerFrameworkVersion}"
+    compile "org.checkerframework:checker-qual:${checkerFrameworkVersion}"
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+// This task only runs if 'test' has already run, i.e., "gradle test jacocoTestReport"
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
+}
+
+// Run nullness checker
+task checknull( type : JavaCompile ) {
+    source = sourceSets.main.java.srcDirs
+    classpath = sourceSets.main.compileClasspath
+    destinationDir = sourceSets.main.java.outputDir
+    options.compilerArgs = [
+        '-processor', 'org.checkerframework.checker.nullness.NullnessChecker',
+        '-processorpath', "${configurations.checkerFramework.asPath}",
+        '-Xmaxerrs', '10000',
+        // uncomment to turn Checker Framework errors into warnings
+        // '-Awarns', '-Xmaxwarns', '10000',
+        "-Xbootclasspath/p:${configurations.checkerFrameworkAnnotatedJDK.asPath}"
+    ]
+}

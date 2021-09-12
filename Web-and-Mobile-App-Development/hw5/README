@@ -1,0 +1,11 @@
+Yiyun Zhang(Benny)
+yz523
+CS275 - HW5
+
+To run this program, first import the database.sql to the mysql server.
+You can do it by type mysql -u root -p <database.sql in command line console.
+After that, go to localhost:8080, the main page will be loaded.
+You can click on menu-university to go to the assignment 5 page.
+You can use dropdown options and click go to load tables.
+The result tables will show in the bottom area.
+To stop this program, stop the mysql server and close the web page.

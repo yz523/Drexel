@@ -1,0 +1,395 @@
+==================================Intro==================================
+This program is using pipes to fork child processes to play a four-in-a-row game. To run the program, use command GAMES=<value> DIMENSION=<value> make test to run the code. For each game, in the console window, the B is the blue piece used by parent and R is the red piece used by child, the parent always win. For each move, the message will show parent and child’s action, for each parent move, the board will update and printed in the console window. After each game is done(has a winner, always parent in this program), the result will show who wins and which game it is. However, my plan was output that result information after each win, but I always get multiple output(especially the multiple table) from some parent move, and it makes the console output looks like a mass. I think the problem is the use of wait() Although I used wait(&child_status) in my loop, it still doesn’t work. I spent a lot of time tried to solve this, such as move the position and create pid_t wpid, but not work.
+commands: 
+make build - build .o executable file
+make clean - clear all file except source code
+GAMES=<value> DIMENSION=<value> make test - run the code
+==================================Output=================================
+command to test: 
+GAMES=4 DIMENSION=8 make test
+
+cc -o ipc.o ipc.c
+./ipc.o 4 8 
+Parent placed piece in square 5, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . . B . . . 
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 5, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . . B . . . 
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 5, 1
+Parent placed piece in square 5, 1
+8 . . . . . . . . 
+8 . . . . . . . . 
+7 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . . B . . . 
+1 . . . . B . . . 
+  1 2 3 4 5 6 7 8 
+
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 5, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+Child placed piece in square 1, 1
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . . B . . . 
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 5, 2
+Parent placed piece in square 4, 1
+8 . . . . . . . . 
+Parent placed piece in square 5, 1
+7 . . . . . . . . 
+Parent placed piece in square 5, 1
+6 . . . . . . . . 
+8 . . . . . . . . 
+8 . . . . . . . . 
+5 . . . . . . . . 
+7 . . . . . . . . 
+7 . . . . . . . . 
+4 . . . . . . . . 
+6 . . . . . . . . 
+6 . . . . . . . . 
+3 . . . . . . . . 
+5 . . . . . . . . 
+5 . . . . . . . . 
+2 . . . . R . . . 
+4 . . . . . . . . 
+4 . . . . . . . . 
+1 . . . B B . . . 
+3 . . . . . . . . 
+3 . . . . . . . . 
+  1 2 3 4 5 6 7 8 
+
+2 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . . B . . . 
+1 . . . . B . . . 
+  1 2 3 4 5 6 7 8 
+
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 8, 1
+Child placed piece in square 7, 1
+Parent placed piece in square 4, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+Child placed piece in square 4, 1
+4 . . . . . . . . 
+3 . . . . . . . . 
+Parent placed piece in square 5, 1
+Parent placed piece in square 6, 1
+2 . . . . . . . . 
+8 . . . . . . . . 
+8 . . . . . . . . 
+1 R . . B B . . . 
+7 . . . . . . . . 
+7 . . . . . . . . 
+  1 2 3 4 5 6 7 8 
+6 . . . . . . . . 
+
+6 . . . . . . . . 
+5 . . . . . . . . 
+Child placed piece in square 3, 1
+5 . . . . . . . . 
+4 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . . B . . . 
+1 . . . R B B . . 
+  1 2 3 4 5 6 7 8 
+
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 6, 1
+Child placed piece in square 6, 1
+Parent placed piece in square 4, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+Parent placed piece in square 6, 1
+2 . . . . . . . . 
+8 . . . . . . . . 
+7 . . . . . . . . 
+1 . . . B B R . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+  1 2 3 4 5 6 7 8 
+
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+Child placed piece in square 4, 1
+1 . . . . B B . R 
+Parent placed piece in square 6, 1
+  1 2 3 4 5 6 7 8 
+8 . . . . . . . . 
+
+Parent placed piece in square 4, 1
+7 . . . . . . . . 
+Child placed piece in square 4, 1
+8 . . . . . . . . 
+6 . . . . . . . . 
+7 . . . . . . . . 
+5 . . . . . . . . 
+6 . . . . . . . . 
+4 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . B B . R . 
+  1 2 3 4 5 6 7 8 
+1 . . . R B B . . 
+
+Child placed piece in square 5, 2
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 6, 2
+Child placed piece in square 6, 1
+8 . . . . . . . . 
+Parent placed piece in square 3, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+7 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+6 . . . . . . . . 
+3 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+2 . . . . R . . . 
+3 . . . . . . . . 
+1 . . B B B R . . 
+2 . . . . . B . . 
+1 . . . . B R . . 
+  1 2 3 4 5 6 7 8 
+  1 2 3 4 5 6 7 8 
+
+
+Child placed piece in square 3, 1
+Child placed piece in square 7, 1
+Parent placed piece in square 7, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+Parent placed piece in square 3, 2
+4 . . . . . . . . 
+8 . . . . . . . . 
+7 . . . . . . . . 
+3 . . . . . . . . 
+6 . . . . . . . . 
+2 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+1 . . R R B B B . 
+3 . . . . . . . . 
+2 . . B . . . . . 
+  1 2 3 4 5 6 7 8 
+1 R . R B B . . . 
+
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 7, 1
+Child placed piece in square 6, 1
+Parent placed piece in square 3, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+Parent placed piece in square 7, 1
+8 . . . . . . . . 
+6 . . . . . . . . 
+7 . . . . . . . . 
+5 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+2 . . . . . . . . 
+1 . . . R B B B R 
+  1 2 3 4 5 6 7 8 
+1 . . B B B R R . 
+
+Child placed piece in square 7, 2
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 3, 1
+Parent placed piece in square 7, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+Parent placed piece in square 3, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+5 . . . . . . . . 
+3 . . . . . . . . 
+4 . . . . . . . . 
+2 . . . . R . . . 
+3 . . . . . . . . 
+1 . . B B B . R . 
+2 . . . . . . . . 
+1 . . R R B B B . 
+  1 2 3 4 5 6 7 8 
+
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 7, 1
+Parent placed piece in square 2, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+Parent placed piece in square 7, 2
+4 . . . . . . . . 
+8 . . . . . . . . 
+3 . . . . . . . . 
+7 . . . . . . . . 
+2 . . . . R . . . 
+6 . . . . . . . . 
+1 . B B B B R R . 
+5 . . . . . . . . 
+  1 2 3 4 5 6 7 8 
+
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . B B . 
+GAME 1 finished: parent win
+1 . . . . B R R . 
+Child placed piece in square 2, 1
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 8, 1
+Child placed piece in square 1, 1
+Child placed piece in square 3, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+Parent placed piece in square 2, 1
+4 . . . . . . . . 
+8 . . . . . . . . 
+3 . . . . . . . . 
+7 . . . . . . . . 
+2 . . . . . . . . 
+6 . . . . . . . . 
+1 . R R R B B B B 
+5 . . . . . . . . 
+4 . . . . . . . . 
+  1 2 3 4 5 6 7 8 
+
+3 . . . . . . . . 
+2 . . B . . . . . 
+GAME 2 finished: parent win
+1 R B R B B R . . 
+Child placed piece in square 8, 1
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 2, 1
+Child placed piece in square 2, 2
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+Parent placed piece in square 8, 2
+5 . . . . . . . . 
+8 . . . . . . . . 
+4 . . . . . . . . 
+7 . . . . . . . . 
+3 . . . . . . . . 
+6 . . . . . . . . 
+2 . . . . . . . . 
+5 . . . . . . . . 
+1 . B B B B R R R 
+4 . . . . . . . . 
+  1 2 3 4 5 6 7 8 
+3 . . . . . . . . 
+
+2 . . . . . . R B 
+1 . . . R B B B R 
+GAME 3 finished: parent win
+  1 2 3 4 5 6 7 8 
+Child placed piece in square 2, 1
+
+Parent placed piece in square 8, 1
+Child placed piece in square 5, 2
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 . R R R B B B B 
+  1 2 3 4 5 6 7 8 
+
+GAME 4 finished: parent win
+Parent placed piece in square 2, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . R . . . 
+1 R B B B B . R . 
+  1 2 3 4 5 6 7 8 
+
+Parent placed piece in square 8, 1
+8 . . . . . . . . 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . . . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . B B . 
+1 . . R . B R R B 
+  1 2 3 4 5 6 7 8 
+
+Child placed piece in square 2, 1

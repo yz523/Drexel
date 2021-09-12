@@ -1,0 +1,30 @@
+.EarthquakeDetailsButton {
+  background: transparent;
+  border: 1px solid #2962ff;
+  border-radius: 2px;
+  box-shadow: none;
+  color: #2962ff;
+  cursor: pointer;
+  display: block;
+  fill: #2962ff;
+  font-size: 16px;
+  height: auto;
+  line-height: 24px;
+  margin: 0 auto;
+  min-height: 32px;
+  padding: 4px 16px;
+  transition: background 0.05s ease, color 0.05s ease;
+  user-select: none;
+
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover,
+  &.is-active {
+    background: #2962ff;
+    color: #f5f5f5;
+    fill: #f5f5f5;
+  }
+}

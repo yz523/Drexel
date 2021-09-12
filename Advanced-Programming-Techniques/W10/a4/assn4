@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+	then
+		echo "No argument provided!"
+		exit 1
+fi
+
+for i in $*; do
+	echo $i >> cmd;
+done
+java a4 cmd
+rm cmd
+exit "${?}"

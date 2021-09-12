@@ -1,0 +1,20 @@
+.EarthquakesHeader {
+  .EarthquakesHeader__label {
+    background-color: #dbd5de;
+    border-bottom: 1px solid #bab0bf;
+    border-left: 1px solid #bab0bf;
+    border-top: 1px solid #bab0bf;
+    box-shadow: 0px 1px 4px 0px rgba(68, 52, 77, 0.14),
+      0px 1px 2px 0px rgba(46, 32, 54, 0.24);
+    color: #444;
+    font-weight: bold;
+    min-width: 100px;
+    padding: 16px 8px;
+    position: relative;
+    position: sticky;
+    text-align: left;
+    top: -1px;
+    vertical-align: top;
+    z-index: 10;
+  }
+}

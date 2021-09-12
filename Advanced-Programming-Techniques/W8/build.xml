@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+
+<project>
+
+  <target name='run' depends='PhoneDict'>
+		<property name="arg" value="Yiyun"/>
+		<java classname='PhoneDict'>
+			<classpath path='./'/>
+			<arg value="${arg}"/>
+		</java>
+	</target>
+	
+  <target name='PhoneDict'>
+    <javac srcdir='./' includes='PhoneDict.java' includeantruntime='false'/>
+  </target>
+	
+    <target name='clean'>
+    <delete>
+			<fileset dir='./'>
+				<include name='*.class'/>
+			</fileset>
+		</delete>
+  </target>
+
+</project>

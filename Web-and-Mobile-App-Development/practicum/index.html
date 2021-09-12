@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Practicum</title>
+</head>
+<body style="background-color:dimgray;">
+<div class="p-3 mb-2 bg-secondary text-white">
+    <h1>Part 1</h1>
+    <form>
+        <div class="form-group">
+            <label for="selection">Select the route number:</label><br>
+            <select class="selectpicker" id="sel">
+                <option value="6">6</option>
+                <option value="14">14</option>
+                <option value="17">17</option>
+                <option value="20">20</option>
+                <option value="23">23</option>
+            </select>
+        </div>
+    </form>
+    <button type="button" class="btn btn-default" onclick="loadschedule()">Load Schedule</button>
+</div>
+<div class="p-3 mb-2 bg-dark text-white" id="result">
+</div>
+<div class="p-3 mb-2 bg-secondary text-white">
+    <h1>Part 2</h1>
+    <button type="button" class="btn btn-default" onclick="part2()">Go to localhost:8080/part2?message=hello&count=4 </button>
+</div>
+<div class="p-3 mb-2 bg-dark text-white" id="result2">
+</div>
+
+<!-- Optional JavaScript -->
+<script>
+    function loadschedule() {
+        var sel = $( "#sel option:selected").val();
+        var URL = "https://www3.septa.org/hackathon/TransitView/?route="+sel;
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "jsonp",
+            success: function(msg) {
+                var json = msg;
+                var table = "<table class='table'><thead><tr><th scope='col'>#</th><th scope='col'>Route</th><th scope='col'>Vehicle Number</th><th scope='col'>Block ID</th><th scope='col'>Direction</th><th scope='col'>Destination</th></tr></thead><tbody>";
+                for (var i = 0; i < json.bus.length; i++) {
+                    table = table + "<tr><th scope='row'>" + (i+1) + "</th><td>" + sel + "</td><td>" + json.bus[i].VehicleID + "</td><td>" + json.bus[i].BlockID + "</td><td>" + json.bus[i].Direction + "</td><td>" + json.bus[i].destination + "</td>></tr>";
+                }
+                table = table + "</tbody></table>";
+                document.getElementById("result").innerHTML = table;
+            },
+            error: function(xhr){
+                document.getElementById("result").innerHTML = "Can NOT connect to server.";
+            }
+        });
+    }
+
+    function part2() {
+        var sel = $( "#sel option:selected").val();
+        var URL = "http://localhost:8080/part2?message=hello&count=4";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "html",
+            success: function(msg) {
+                document.getElementById("result2").innerHTML = msg;
+            },
+            error: function(xhr){
+                document.getElementById("result2").innerHTML = "Can NOT connect to server.";
+            }
+        });
+    }
+</script>
+
+<!--jQuery first, then Popper.js, then Bootstrap JS  -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

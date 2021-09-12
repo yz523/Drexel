@@ -1,0 +1,10 @@
+Yiyun Zhang(Benny)
+yz523
+CS275 - HW2
+
+To run this project, open yz523_HW2.html file in a web browser.
+You can input an API key in the first text field and zip code in the first text field.
+After that, click Go!
+The result will show in the bottom of the page, which is a forecast table shows 5 days/ 3 hours forecasts for the location in the zip code.
+If you enter invalid API key or Zip code, the result in the bottom will be "Invalid API key or Zip code."
+To stop this project, close the web page.

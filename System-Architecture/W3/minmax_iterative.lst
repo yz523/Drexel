@@ -1,0 +1,141 @@
+   8:minmax_iterative.c ****   int min, max;
+   9:minmax_iterative.c ****   MinMaxIt (A, 10, &min, &max) ;
+  93              		addu	$v0,$fp,20  # $v0 = frame pointer to 20
+  94              		la	$a0,A           # $a0 = &(A)
+  95              		li	$a1,10			# initiate $a1 = 10
+  96              		addu	$a2,$fp,16  # $a2 = frame pointer to 16
+  97              		move	$a3,$v0     # copy $v0 to $a3
+  98 ???? 0000000C 		jal	MinMaxIt        # jump and link to MinMaxIt function
+  98      00000000 
+  99              	$LM3:
+  10:minmax_iterative.c **** //printf ("MinMaxIt = %d %d \n", min, max) ;
+  11:minmax_iterative.c ****   print_str("MinMaxIt = ");
+ 101              		la	$a0,$LC0     # $a0 = &(""MinMaxIt = "")
+ 102 ???? 0000000C 		jal	print_str    # jump and link to print_str function
+ 102      00000000 
+ 103              	$LM4:
+  12:minmax_iterative.c ****   print_int(min); print_str("  ");
+ 105              		lw	$a0,16($fp)	 # load $a0 = 16($fp) = min
+ 106 ???? 0000000C 		jal	print_int    # jump and link to print_int function
+ 106      00000000 
+ 107              		la	$a0,$LC1     # $a0 = &("  ")
+ 108 ???? 0000000C 		jal	print_str    # jump and link to print_str function
+ 108      00000000 
+ 109              	$LM5:
+  13:minmax_iterative.c ****   print_int(max); print_str("\n");
+ 111              		lw	$a0,20($fp)	 # load $a0 = 20($fp)
+ 112 ???? 0000000C 		jal	print_int    # jump and link to print_int function
+ 112      00000000 
+ 113              		la	$a0,$LC2     # $a0 = &(\n)
+ 114 ???? 0000000C 		jal	print_str    # jump and link to print_str funciont
+ 114      00000000 
+ 115              	$LM6:
+  14:minmax_iterative.c ****   return(0);
+ 117              		move	$v0,$zero  # copy 0 to $v0
+ 118              	$LBE2:
+ 119              	$LM7:
+  15:minmax_iterative.c ****  }
+ 121 ???? 21E8C003 		move	$sp,$fp    # copy frame pointer to stack pointer
+ 122 ???? 1C00BF8F 		lw	$ra,28($sp)  # load $ra = 28($sp)
+ 123 ???? 1800BE8F 		lw	$fp,24($sp)  # load $fp = 24($sp)
+ 124 ???? 2000BD27 		addu	$sp,$sp,32 # delete 8 items from stack
+ 125 ???? 0800E003 		j	$ra            # jump to return address
+ 125      00000000 
+ 126              		.end	main
+ 132              		.align	2
+ 133              		.globl	MinMaxIt
+ 134              	$LM8:
+  16:minmax_iterative.c **** 
+  17:minmax_iterative.c **** MinMaxIt (A, n, _min, _max)
+  18:minmax_iterative.c **** register int * A;
+  19:minmax_iterative.c **** register unsigned int n;
+  20:minmax_iterative.c **** register int * _min;
+  21:minmax_iterative.c **** register int * _max;
+  22:minmax_iterative.c ****  {
+ 136              		.ent	MinMaxIt
+ 137              	MinMaxIt:
+ 138              		.frame	$fp,16,$ra		# vars= 0, regs= 4/0, args= 0, extra= 0
+ 139              		.mask	0x40e00000,-4
+ 140              		.fmask	0x00000000,0
+ 141 ???? F0FFBD27 		subu	$sp,$sp,16  # adjust stack for 4 items
+ 142 ???? 0C00BEAF 		sw	$fp,12($sp)   # save 12($sp) to frame pointer
+ 143              		sw	$s7,8($sp)    # save 8($sp) to $s7
+ 144              		sw	$s6,4($sp)    # save 4($sp) to $s6
+ 145              		sw	$s5,0($sp)    # save 0($sp) to $s5
+ 146 ???? 21F0A003 		move	$fp,$sp     # copy stack pointer to frame pointer
+ 147              		sw	$a0,16($fp)	  #  save A to $a0
+ 148              		sw	$a1,20($fp)	  #  save n to $a1
+ 149              		sw	$a2,24($fp)	  #  save _min to $a2
+ 150              		sw	$a3,28($fp)	  #  save _max to $a3
+ 151              	$LBB3:
+ 152              	$LM9:
+  23:minmax_iterative.c ****   register int min asm ("s5") ;
+  24:minmax_iterative.c ****   register int max asm ("s6") ;
+  25:minmax_iterative.c ****   register int *p  asm ("s7") ;
+  26:minmax_iterative.c ****   min = A[0];
+ 154              		lw	$v0,16($fp)	  # $v0 = A
+ 155              		lw	$s5,0($v0)    # $s5 = min
+ 156              	$LM10:
+  27:minmax_iterative.c ****   max = A[0];
+ 158              		lw	$v1,16($fp)	  # $v1 = A
+ 159              		lw	$s6,0($v1)    # $s6 = max
+ 160              	$LM11:
+  28:minmax_iterative.c ****   for (p = &A[1]; p < &A[n]; p ++ ) 
+ 162              		lw	$v0,16($fp)	  # $v0 = A
+ 163              		addu	$s7,$v0,4   # $s7 = p
+ 164              	$L3:
+ 165              		lw	$v0,20($fp)	  # load $v0 = n
+ 166              		sll	$v0,$v0,2	    # add space for $v0
+ 167              		lw	$v1,16($fp)	  # load $v1 = A
+ 168              		addu	$v0,$v1,$v0 # n = n + A
+ 169              		sltu	$v0,$s7,$v0 # if p < A, v0 = 1
+ 170              		bne	$v0,$zero,$L6 # if v0 != 0, jump t0 L6
+ 171 ???? 00000008 		j	$L4             # jump to L4
+ 171      00000000 
+ 172              	$L6:
+ 173              	$LM12:
+  29:minmax_iterative.c ****    {
+  30:minmax_iterative.c ****     if ( * p < min) min = * p;
+ 175              		lw	$v0,0($s7)     # load $v0 = p
+ 176              		slt	$v0,$v0,$s5    # if p < min, $v0 = 1
+ 177              		beq	$v0,$zero,$L7  # if $v0 = 0, jump to L7
+ 178              		lw	$s5,0($s7)     # load min = p
+ 179              	$L7:
+ 180              	$LM13:
+  31:minmax_iterative.c ****     if ( * p > max) max = * p;
+ 182              		lw	$v0,0($s7)     # load $v0 = p
+ 183              		slt	$v0,$s6,$v0    # if max > p, $v0 = 1 
+ 184              		beq	$v0,$zero,$L5  # if $v0 = 0, jump to L5
+ 185              		lw	$s6,0($s7)     # max = p
+ 186              	$LM14:
+ 188              	$L5:
+ 189              		addu	$s7,$s7,4    # p = p + 4
+ 190 ???? 00000008 		j	$L3              # jump to L3
+ 190      00000000 
+ 191              	$L4:
+ 192              	$LM15:
+  32:minmax_iterative.c ****    }
+  33:minmax_iterative.c ****   * _max = max;
+ 194              		lw	$v0,28($fp)	   # $v0 = _max
+ 195              		sw	$s6,0($v0)     # _max = max
+ 196              	$LM16:
+  34:minmax_iterative.c ****   * _min = min;
+ 198              		lw	$v1,24($fp)  	 # $v1 = _min
+ 199              		sw	$s5,0($v1)     # _min = min
+ 200              	$LM17:
+  35:minmax_iterative.c ****   return(0);
+ 202              		move	$v0,$zero    # copy 0 to $v0
+ 203              	$LBE3:
+ 204              	$LM18:
+  36:minmax_iterative.c ****  }
+ 206 ???? 21E8C003 		move	$sp,$fp      # copy frame pointer to stack pointer
+ 207 ???? 0C00BE8F 		lw	$fp,12($sp)    # load 12($sp) to frame pointer
+ 208              		lw	$s7,8($sp)     # load 8($sp) to $s7
+ 209              		lw	$s6,4($sp)     # load 14($sp) to $s6
+ 210              		lw	$s5,0($sp)     # load 0($sp) to $s5
+ 211 ???? 1000BD27 		addu	$sp,$sp,16   # delete 4 item in the stack
+ 212 ???? 0800E003 		j	$ra              # jump to return address
+ 212      00000000 
+ 213              		.end	MinMaxIt
+ 224              		.align	2
+ 225              		.globl	__main

@@ -1,0 +1,15 @@
+The advantage of the test involved stopping is making the test simple enough to test, while the test can still reflect if the program is working correctly or not. The disadvantage is we can't test the complicated suituation, such as add and delete multiple times in this program. However, it also can be seen as an advantage, because we don't have to write too many test cases that include all possible behavior in the webpage(2^n suituations, where n is the depth), and it makes our test case efficient and clear.
+
+There are six test cases in my test file.
+testOneItem()
+	Test add one item to the list, check if the item is in the list.
+testTwoItem()
+	Test add two items to the list, check if the items are in the list.
+DeleteOneItemFirst()
+	Test delete one item on the list, check if the item is still on the list.
+DeleteOneItemSecond()
+	Test delete second item on the list, check if the item is still on the list.
+DeleteTwoItem()
+	Test delete all items on the list, check if the two items are still on the list.
+AddItemAfterDelete()
+	Test add an item on the list after the deletion, check if the item is on the list.

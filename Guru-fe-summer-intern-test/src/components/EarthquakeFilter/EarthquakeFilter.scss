@@ -1,0 +1,18 @@
+.EarthquakeFilter {
+  background-color: #f5f8f9;
+  border: 1px solid #dbd5de;
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 16px;
+  height: 32px;
+  line-height: 1;
+  margin: 0 0 16px;
+  min-width: 50%;
+  outline: none;
+  padding: 4px 8px;
+  resize: none;
+
+  &::placeholder {
+    color: #b5b5b5;
+  }
+}

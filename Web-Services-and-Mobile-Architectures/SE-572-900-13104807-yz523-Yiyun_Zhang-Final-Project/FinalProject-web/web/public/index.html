@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <title>Films</title>
+        <div>
+                <h1 class="text-center font-italic">SE-572-900</h1>
+                <h3 class="text-center font-italic">Yiyun Zhang</h3>
+        </div>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">             
+</head>
+        <body class="bg">
+                <div class="container my-5" >
+                        <div class="container-fluid ">
+                                        <form onsubmit="return API.login()">
+                                                <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                                <span class="input-group-text">Username</span>
+                                                        </div>
+                                                        <input type="text" placeholder="Please enter your username" aria-label="Please enter your username" class="form-control" id="login">
+                                                        <input type="submit" value="Login" class="btn btn-secondary font-weight-bold text-white form-control" style="background-image:url(/images/b1.png);background-size:cover">
+                                                </div>
+                                                <div class="alert alert-danger" id="loginRedAlert">
+                                                </div>
+                                                <div class="alert alert-success" id="loginGreenAlert">
+                                                </div>
+                                        </form>
+                        </div>
+                </div>
+                <div class="container my-5">
+                        <div class="container-fluid">
+                                <form onsubmit="return API.createFilm()">
+                                        <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                               <span class="input-group-text">Film</span>
+                                               </div>
+                                               <input type="text" placeholder="Please enter a film" aria-label="Please enter a film" class="form-control" id="filmInput">
+                                               <div class="input-group-prepend">
+                                                       <span class="input-group-text">Rating</span>          
+                                               </div>
+                                               <input type="text" placeholder="Please enter a rating" aria-label="Please enter a rating" class="form-control" id="ratingInput">
+                                               <input type="submit" value="Submit" class="btn btn-secondary font-weight-bold text-white form-control" style="background-image:url(/images/b2.png);background-size:cover">
+                                       </div>
+                                       <div class="alert alert-danger" id="filmRedAlert">
+                                       </div>
+                                       <div class="alert alert-success" id="filmGreenAlert">
+                                       </div>
+                                       <div class="alert alert-danger" id="ratingRedAlert">
+                                       </div>
+                                       <div class="alert alert-success" id="ratingGreenAlert">
+                                       </div>
+                                </form>
+                        </div>
+                </div>
+                <div class="container my-3">
+                        <div class="container-fluid">
+                                <div>
+                                        <form onsubmit="return API.getFilms()" class="center text-center">
+                                                <input type="submit" value="Show Table" class="btn btn-secondary font-weight-bold text-white my-3 px-5" style="background-image:url(/images/b3.png);background-size:cover"> 
+                                        </form>
+                                        <div class="alert alert-danger" id="tableRedAlert">
+                                        </div>
+                                        <div class="alert alert-success" id="tableGreenAlert">
+                                        </div>
+                                        <form onsubmit="return API.updateRating()">
+                                                <table id="myTable" class="table text-center font-weight-bold text-white"></table>
+                                        </form>
+                                         
+                                </div>
+                        </div>
+                </div>
+
+        </body>
+
+</html>
+
+<script type="text/javascript" src="./films.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

@@ -1,0 +1,248 @@
+   1              		.file	1 "stack-test3.c"
+   2              	
+   3              	 # -G value = 8, Arch = 3000, ISA = 1
+   4              	 # GNU C version 3.2.2 (mips-dec-ultrix42)
+   5              	 #	compiled by GNU C version 2.95.4 20011002 (Debian prerelease).
+   6              	 # options passed:  -lang-c -iprefix -D__GNUC__=3 -D__GNUC_MINOR__=2
+   7              	 # -D__GNUC_PATCHLEVEL__=2 -D__GXX_ABI_VERSION=102 -D__ANSI_COMPAT -DMIPSEL
+   8              	 # -DR3000 -DSYSTYPE_BSD -D_SYSTYPE_BSD -Dbsd4_2 -Dhost_mips -Dmips
+   9              	 # -Dultrix -Dunix -D__ANSI_COMPAT -D__MIPSEL__ -D__R3000__
+  10              	 # -D__SYSTYPE_BSD__ -D_SYSTYPE_BSD -D__bsd4_2_ -D__host_mips__ -D__mips__
+  11              	 # -D__ultrix__ -D__unix__ -D__MIPSEL -D__R3000 -D__SYSTYPE_BSD -D__bsd4_2
+  12              	 # -D__host_mips -D__mips -D__ultrix -D__unix -Asystem=unix -Asystem=bsd
+  13              	 # -Acpu=mips -Amachine=mips -D__NO_INLINE__ -D__STDC_HOSTED__=1
+  14              	 # -D__LANGUAGE_C -D_LANGUAGE_C -DLANGUAGE_C -D__SIZE_TYPE__=unsigned int
+  15              	 # -D__PTRDIFF_TYPE__=int -D__SIZE_TYPE__=unsigned int
+  16              	 # -D__PTRDIFF_TYPE__=int -D__mips_fpr=32 -mrnames -g -O0 -fverbose-asm
+  17              	 # options enabled:  -fpeephole -ffunction-cse -fkeep-static-consts
+  18              	 # -fpcc-struct-return -fgcse-lm -fgcse-sm -fsched-interblock -fsched-spec
+  19              	 # -fbranch-count-reg -fcommon -fverbose-asm -fgnu-linker -fargument-alias
+  20              	 # -fident -fmath-errno -ftrapping-math -mgas -mrnames -march=3000
+  21              	 # -mno-flush-funccacheflush -mflush-func=cacheflush
+  22              	
+  25              		.text
+  26              	$Ltext0:
+  50              		.align	2
+  51              		.globl	main
+  52              	$LM1:
+   1:stack-test3.c **** int *test (int);
+   2:stack-test3.c **** 
+   3:stack-test3.c **** main ()
+   4:stack-test3.c ****  {
+  54              		.ent	main
+  55              	main:
+  56              		.frame	$fp,40,$ra		# vars= 16, regs= 2/0, args= 16, extra= 0
+  57              		.mask	0xc0000000,-4
+  58              		.fmask	0x00000000,0
+  59 ???? D8FFBD27 		subu	$sp,$sp,40
+  60 ???? 2400BFAF 		sw	$ra,36($sp)
+  61 ???? 2000BEAF 		sw	$fp,32($sp)
+  62 ???? 21F0A003 		move	$fp,$sp
+  63 ???? 0000000C 		jal	__main
+  63      00000000 
+  64              	$LBB2:
+  65              	$LM2:
+   5:stack-test3.c ****   int *p;
+   6:stack-test3.c ****   int x, y, z;
+   7:stack-test3.c ****   x = 61;
+  67              		li	$v0,61			# 0x3d
+  68              		sw	$v0,20($fp)	 #  x
+  69              	$LM3:
+   8:stack-test3.c ****   y = 62;
+  71              		li	$v0,62			# 0x3e
+  72              		sw	$v0,24($fp)	 #  y
+  73              	$LM4:
+   9:stack-test3.c ****   z = 63;
+  75              		li	$v0,63			# 0x3f
+  76              		sw	$v0,28($fp)	 #  z
+  77              	$LM5:
+  10:stack-test3.c ****   p = test(x);
+  79              		lw	$a0,20($fp)	 #  x
+  80 ???? 0000000C 		jal	test
+  80      00000000 
+  81              		sw	$v0,16($fp)	 #  p
+  82              	$LM6:
+  11:stack-test3.c ****   z = *p;
+  84              		lw	$v0,16($fp)	 #  p
+  85              		lw	$v0,0($v0)
+  86              		sw	$v0,28($fp)	 #  z
+  87              	$LM7:
+  12:stack-test3.c ****   *p = 70;
+  89              		lw	$v1,16($fp)	 #  p
+  90              		li	$v0,70			# 0x46
+  91              		sw	$v0,0($v1)
+  92              	$LM8:
+  13:stack-test3.c ****   z = *p;
+  94              		lw	$v0,16($fp)	 #  p
+  95              		lw	$v0,0($v0)
+  96              		sw	$v0,28($fp)	 #  z
+  97              	$LM9:
+  14:stack-test3.c ****   y = foo(x);
+  99              		lw	$a0,20($fp)	 #  x
+ 100 ???? 0000000C 		jal	foo
+ 100      00000000 
+ 101              		sw	$v0,24($fp)	 #  y
+ 102              	$LM10:
+  15:stack-test3.c ****   z = *p;
+ 104              		lw	$v0,16($fp)	 #  p
+ 105              		lw	$v0,0($v0)
+ 106              		sw	$v0,28($fp)	 #  z
+ 107              	$LM11:
+  16:stack-test3.c ****   return(2);
+ 109              		li	$v0,2			# 0x2
+ 110              	$LBE2:
+ 111              	$LM12:
+  17:stack-test3.c ****  }
+ 113 ???? 21E8C003 		move	$sp,$fp
+ 114 ???? 2400BF8F 		lw	$ra,36($sp)
+ 115 ???? 2000BE8F 		lw	$fp,32($sp)
+ 116 ???? 2800BD27 		addu	$sp,$sp,40
+ 117 ???? 0800E003 		j	$ra
+ 117      00000000 
+ 118              		.end	main
+ 126              	
+ 127              		.lcomm	c.0,4
+ 128              		.align	2
+ 129              		.globl	test
+ 130              	$LM13:
+  18:stack-test3.c **** 
+  19:stack-test3.c **** int *test (v)
+  20:stack-test3.c **** int v;
+  21:stack-test3.c ****  {
+ 132              		.ent	test
+ 133              	test:
+ 134              		.frame	$fp,24,$ra		# vars= 0, regs= 2/0, args= 16, extra= 0
+ 135              		.mask	0xc0000000,-4
+ 136              		.fmask	0x00000000,0
+ 137 ???? E8FFBD27 		subu	$sp,$sp,24
+ 138 ???? 1400BFAF 		sw	$ra,20($sp)
+ 139 ???? 1000BEAF 		sw	$fp,16($sp)
+ 140 ???? 21F0A003 		move	$fp,$sp
+ 141              		sw	$a0,24($fp)	 #  v
+ 142              	$LBB3:
+ 143              	$LM14:
+  22:stack-test3.c ****   static int c;
+  23:stack-test3.c ****   dummy(v);
+ 145              		lw	$a0,24($fp)	 #  v
+ 146 ???? 0000000C 		jal	dummy
+ 146      00000000 
+ 147              	$LM15:
+  24:stack-test3.c ****   c = v;
+ 149              		lw	$v0,24($fp)	 #  v
+ 150              		sw	$v0,c.0	 #  c
+ 151              	$LM16:
+  25:stack-test3.c ****   return(&c);
+ 153              		la	$v0,c.0
+ 154              	$LBE3:
+ 155              	$LM17:
+  26:stack-test3.c ****  }
+ 157 ???? 21E8C003 		move	$sp,$fp
+ 158 ???? 1400BF8F 		lw	$ra,20($sp)
+ 159 ???? 1000BE8F 		lw	$fp,16($sp)
+ 160 ???? 1800BD27 		addu	$sp,$sp,24
+ 161 ???? 0800E003 		j	$ra
+ 161      00000000 
+ 162              		.end	test
+ 168              		.align	2
+ 169              		.globl	foo
+ 170              	$LM18:
+  27:stack-test3.c **** 
+  28:stack-test3.c **** foo (x)
+  29:stack-test3.c **** int x;
+  30:stack-test3.c ****  {
+ 172              		.ent	foo
+ 173              	foo:
+ 174              		.frame	$fp,40,$ra		# vars= 16, regs= 2/0, args= 16, extra= 0
+ 175              		.mask	0xc0000000,-4
+ 176              		.fmask	0x00000000,0
+ 177 ???? D8FFBD27 		subu	$sp,$sp,40
+ 178 ???? 2400BFAF 		sw	$ra,36($sp)
+ 179 ???? 2000BEAF 		sw	$fp,32($sp)
+ 180 ???? 21F0A003 		move	$fp,$sp
+ 181              		sw	$a0,40($fp)	 #  x
+ 182              	$LBB4:
+ 183              	$LM19:
+  31:stack-test3.c ****   int i, j, k;
+  32:stack-test3.c ****   i = 65;
+ 185              		li	$v0,65			# 0x41
+ 186              		sw	$v0,16($fp)	 #  i
+ 187              	$LM20:
+  33:stack-test3.c ****   j = 66;
+ 189              		li	$v0,66			# 0x42
+ 190              		sw	$v0,20($fp)	 #  j
+ 191              	$LM21:
+  34:stack-test3.c ****   k = i + j;
+ 193              		lw	$v1,16($fp)	 #  i
+ 194              		lw	$v0,20($fp)	 #  j
+ 195              		addu	$v0,$v1,$v0
+ 196              		sw	$v0,24($fp)	 #  k
+ 197              	$LM22:
+  35:stack-test3.c ****   dummy(k);
+ 199              		lw	$a0,24($fp)	 #  k
+ 200 ???? 0000000C 		jal	dummy
+ 200      00000000 
+ 201              	$LM23:
+  36:stack-test3.c ****   return(k);
+ 203              		lw	$v0,24($fp)	 #  k
+ 204              	$LBE4:
+ 205              	$LM24:
+  37:stack-test3.c ****  }
+ 207 ???? 21E8C003 		move	$sp,$fp
+ 208 ???? 2400BF8F 		lw	$ra,36($sp)
+ 209 ???? 2000BE8F 		lw	$fp,32($sp)
+ 210 ???? 2800BD27 		addu	$sp,$sp,40
+ 211 ???? 0800E003 		j	$ra
+ 211      00000000 
+ 212              		.end	foo
+ 220              		.align	2
+ 221              		.globl	__main
+ 222              	$LM25:
+  38:stack-test3.c **** 
+  39:stack-test3.c **** __main ()
+  40:stack-test3.c ****  {
+ 224              		.ent	__main
+ 225              	__main:
+ 226              		.frame	$fp,8,$ra		# vars= 0, regs= 1/0, args= 0, extra= 0
+ 227              		.mask	0x40000000,-8
+ 228              		.fmask	0x00000000,0
+ 229 ???? F8FFBD27 		subu	$sp,$sp,8
+ 230 ???? 0000BEAF 		sw	$fp,0($sp)
+ 231 ???? 21F0A003 		move	$fp,$sp
+ 232              	$LM26:
+  41:stack-test3.c ****   return(0);
+ 234              		move	$v0,$zero
+ 235              	$LM27:
+  42:stack-test3.c ****  }
+ 237 ???? 21E8C003 		move	$sp,$fp
+ 238 ???? 0000BE8F 		lw	$fp,0($sp)
+ 239 ???? 0800BD27 		addu	$sp,$sp,8
+ 240 ???? 0800E003 		j	$ra
+ 240      00000000 
+ 241              		.end	__main
+ 243              		.align	2
+ 244              		.globl	dummy
+ 245              	$LM28:
+  43:stack-test3.c **** 
+  44:stack-test3.c **** dummy (v)
+  45:stack-test3.c **** int v;
+  46:stack-test3.c ****  {
+ 247              		.ent	dummy
+ 248              	dummy:
+ 249              		.frame	$fp,8,$ra		# vars= 0, regs= 1/0, args= 0, extra= 0
+ 250              		.mask	0x40000000,-8
+ 251              		.fmask	0x00000000,0
+ 252 ???? F8FFBD27 		subu	$sp,$sp,8
+ 253 ???? 0000BEAF 		sw	$fp,0($sp)
+ 254 ???? 21F0A003 		move	$fp,$sp
+ 255              		sw	$a0,8($fp)	 #  v
+ 256              	$LM29:
+  47:stack-test3.c ****   return(0);
+ 258              		move	$v0,$zero
+ 259              	$LM30:
+  48:stack-test3.c ****  }
+ 261 ???? 21E8C003 		move	$sp,$fp
+ 262 ???? 0000BE8F 		lw	$fp,0($sp)
+ 263 ???? 0800BD27 		addu	$sp,$sp,8
+ 264 ???? 0800E003 		j	$ra
+ 264      00000000 
+ 265              		.end	dummy

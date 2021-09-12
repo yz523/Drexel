@@ -1,0 +1,119 @@
+Yiyun Zhang(Benny)
+yz523@drexel.edu
+Q1
+It is the implementation of LL(1) parsing, base on the example of 2.24, and the tree is same as in figure 2.18. The sub-trees are created in the maketree function, and stored in the list t. Outside the recursion, there is a main tree called mytree that combine the sub-trees together and match the figure 2.18.
+
+Command to run the code: 
+make run
+
+output:
+stmt   stme_list
+read   A
+
+
+stmt   stme_list
+read   B
+
+
+stmt   stme_list
+sum   :=   expr
+term   term_tail
+factor   term_tail
+add_op   term   term_tail
+A   NULL
++
+factor   factor_tail
+NULL
+B   NULL
+
+
+stmt   stme_list
+write   expr
+term   term_tail
+factor   factor_tail
+NULL
+sum   NULL
+
+
+stmt   stme_list
+stmt   stmt_list
+write   expr
+NULL
+term   term_tail
+factor   factor_tail
+NULL
+sum
+mul_op   factor   factor_tail
+/   2   NULL
+
+Q3
+All data in figure 8.1 and 8.2 are stored in csg(C,S,G):=C=<value>,S=<value>,G=<value>, pr(C,P):=C=<value>;P=<value> and student(N,I):=N=<value>,I=<value> format. To access the data, which is to answer the question ‘What is L. Van Pelt’s grade in PH100 class’, enter answer("L. Van Pelt", "PH100", G). will output the answer. The before command will show if the class is another’s pre-request.
+
+Commands to run the code:
+prolog
+[q3].
+answer("L. Van Pelt", "PH100", G).
+before("CS120", "CS100").
+before("CS206", "CS100").
+
+output:
+| ?- answer("L. Van Pelt", "PH100", G).
+
+G = ['C',+] ? 
+
+yes
+
+| ?- before("CS120", "CS100").
+
+true ? 
+
+yes
+
+| ?- before("CS206", "CS100").
+
+true ? 
+
+yes
+
+
+Q4
+I modified the microshaft-data-base in the file from lab4, add the data in figure 8.1 and 8.2 to the data-base. To answer the question ‘What is L. Van Pelt’s grade in PH100 class’, enter (and (student (L. Van Pelt) ?x) (csg (PH100) ?x ?y)), where x will be the Student ID and y will be the grade. The before command will show if the class is another’s pre-request.
+
+Command to run the code:
+mit-scheme
+(load "q4.scm")
+(initialize-data-base microshaft-data-base)
+(query-driver-loop)
+(and (student (L. Van Pelt) ?x) (csg (PH100) ?x ?y))
+(before (CS120) (CS100))
+(before (CS206) (CS100))
+
+output:
+1 ]=> (load "q4.scm")
+
+;Loading "q4.scm"... done
+;Value: microshaft-data-base
+
+1 ]=> (initialize-data-base microshaft-data-base)
+;Value: done
+
+1 ]=> (query-driver-loop)
+
+;;; Query input:
+(and (student (L. Van Pelt) ?x) (csg (PH100) ?x ?y))
+
+;;; Query results:
+(and (student (l. van pelt) 67890) (csg (ph100) 67890 (c+)))
+
+;;; Query input:
+(before (CS120) (CS100))
+
+;;; Query results:
+(before (cs120) (cs100))
+
+;;; Query input:
+(before (CS206) (CS100))
+
+;;; Query results:
+(before (cs206) (cs100))
+(before (cs206) (cs100))

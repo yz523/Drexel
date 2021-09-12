@@ -1,0 +1,11 @@
+Q1.1 
+	i: Hide implementation details: If a program hide the implementation details, the implementation part is irrelevant to the client(user). Therefore, the change of the implementation won't effect or breaking anything including the client(user).
+	ii: Choose a small orthogonal set of primitives: The interface should only provide necessary functions, not too much. And the funcitons should not repeated excessively in their capabilities.
+	iii: Don't reach behind the user's back: The library function should not write secret files and variables or change global data, and it should be circumspect about modifying data in the callesr.
+	iv: Do the same thing the same way everywhere: Use same format everywhere. Related things should be achieved by related means.
+Q1.2 The input buffer and field of each line is limited. The global variable field is empty. The unquote function only remove first quote.
+Q1.3 The size of input buffer and field is not limited. More functions added.
+Q1.4 It still only remove the first quote and ignore the second one. No, because there is only one explict variable in the function csvgetline which is FILE *fin.
+Q1.5 Yes. It also remove the second quote. Only one file can be parsed at the same time.
+Q1.6 Yes. It hide the implementation details, only use necessary functions and the functions' capabilities are not excessively, doesn't reach behind user's back and use the same format and standard way everywhere.
+Q1.7 Completed and Submitted.

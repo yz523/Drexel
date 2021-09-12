@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery Mobile CSS -->
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <title>Assignment 5</title>
+</head>
+<body>
+<div class="p-3 mb-2 bg-dark text-white" data-role="header" data-position="fixed">
+    <h1>University</h1>
+</div>
+<div class="p-3 mb-2 bg-secondary text-white">
+    <form>
+        <div class="form-group">
+            <label for="selection">Select a table:</label><br>
+            <select class="selectpicker" id="sel">
+                <option value="student">student</option>
+                <option value="course">course</option>
+                <option value="grades">grades</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-default" onclick="getTable()">Go!</button>
+    </form>
+</div>
+<div class="p-3 mb-2 bg-dark text-white" id="result">
+</div>
+<div class="p-3 mb-2 bg-secondary text-white">
+    <form>
+        <div class="form-group">
+            <label for="selection">Select a Student:</label><br>
+            <select class="selectpicker" id="sel1">
+                <option value="aaa">aaa</option>
+                <option value="bbb">bbb</option>
+                <option value="ccc">ccc</option>
+                <option value="ddd">ddd</option>
+            </select>
+            <label for="selection">Select a Term/Year:</label><br>
+            <select class="selectpicker" id="sel2">
+                <option value="wi16">wi16</option>
+                <option value="wi17">wi17</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-default" onclick="getTable2()">Go!</button>
+    </form>
+</div>
+<div class="p-3 mb-2 bg-dark text-white" id="result2">
+</div>
+<div class="p-3 mb-2 bg-dark text-white" data-role="footer" data-position="fixed">
+    <h1>CS 275</h1>
+</div>
+
+<!--JavaScript -->
+<script>
+    function getTable(){
+        var sel = $("#sel").val();
+        var URL = "http://localhost:8080/getTable";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {sel},
+            dataType: "html",
+            success: function(msg) {
+                var json = msg;
+                document.getElementById("result").innerHTML = json;
+            },
+            error: function(xhr){
+                document.getElementById("result").innerHTML = "Can NOT connect to server";
+            }
+        });
+    }
+
+    function getTable2(){
+        var sel1 = $("#sel1").val();
+        var sel2 = $("#sel2").val();
+        var URL = "http://localhost:8080/getTable2";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            contentType: "application/json; charset=utf-8",
+            data: {sel1,sel2},
+            dataType: "html",
+            success: function(msg) {
+                var json = msg;
+                document.getElementById("result2").innerHTML = json;
+            },
+            error: function(xhr){
+                document.getElementById("result2").innerHTML = "Can NOT connect to server";
+            }
+        });
+    }
+</script>
+
+<!--jQuery Mobile JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+
+<!--jQuery first, then Popper.js, then Bootstrap JS  -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

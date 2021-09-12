@@ -1,0 +1,49 @@
+#!/bin/bash
+ary[i]=""
+req=0
+#find all directory
+for dir in $(find * -type d)
+do
+#create dir.xml file
+dirxml="$dir/dir.xml"
+echo "<?xml version="1.0" encoding="ISO-8859-1"?>" > $dirxml
+echo "<durentry>" >> $dirxml
+#pull README info
+if [[ -f "$dir/README" ]] ; then
+#make README list
+awk 'BEGIN { RS=":"}
+{
+	for(i=1;i<=NF;i++){
+		$ary[$i]=$i;
+		if($i=="required"){$req=1;}
+		if($i=="required"||$i=="other"||$i=="index"){
+            print " <"$i">";}
+		if($i!="required"&&$i!="other"&&$i!="index"){
+			print "  <file>"$i"</file>";}	
+		if(NR==2&&i==1){print "</index>";}
+			}
+}' "$dir/README" >> $dirxml
+	if [ "$req" -eq 1 ]; then
+		echo " </required>" >> $dirxml
+	fi
+fi
+
+#make directory list
+echo " <other>" >> $dirxml
+#list all file and dictory in current dictory
+for file in $(ls $dir) 
+do
+#check if the $file already exist in other lists
+ 	if [[ $ary[$file] != "$file" ]] ; then
+#check if $file is directory or file
+ 	  if [[ -d "$file" ]] ; then
+			echo "  <dir>"$file"</dir>" >> $dirxml
+	  else
+   		echo "  <file>"$file"</file>" >> $dirxml
+   	fi
+	fi
+done
+#end part
+echo " </other>" >> $dirxml
+echo "</durentry>" >> $dirxml
+done

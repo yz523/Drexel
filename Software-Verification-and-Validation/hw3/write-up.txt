@@ -1,0 +1,9 @@
+Yiyun Zhang
+SE320
+HW3 - Object Dependencies
+
+For this homework, I used ad-hoc approach to refactor the code in client class file, in order to expose the dependency on the collaborator. By following the example ‘Breaking Dependencies: Pass the Collaborator’ in the lecture notes, I made the conn to be an object of the client class, and add a new method declaration that can pass the mock ServerConnection to it.
+
+================================Test Cases================================
+test1-9 are the answers to the question 1-9 and test10_1 to test10_5 are the answers to the question 10.
+For each test case, the explanation is in front of the implementation.
