@@ -1,0 +1,364 @@
+actual,predict,confidence
+aquamarine,screw,0.20814421772956848
+aquamarine,shower cap,0.6994245052337646
+aquamarine,shower cap,0.9474921822547913
+aquamarine,packet,0.2877802848815918
+aquamarine,perfume,0.6923607587814331
+almandine,switch,0.2830471098423004
+almandine,pencil sharpener,0.15013733506202698
+almandine,pinwheel,0.8135105967521667
+almandine,pick,0.5981342792510986
+andradite,hair slide,0.3896627724170685
+andradite,hair slide,0.0827617421746254
+andradite,hair slide,0.21081851422786713
+andradite,shower cap,0.5769158005714417
+ametrine,shower cap,0.38413330912590027
+ametrine,perfume,0.24376027286052704
+ametrine,pencil sharpener,0.3405359089374542
+ametrine,band aid,0.13614392280578613
+alexandrite,shower cap,0.9767279028892517
+alexandrite,shield,0.12729837000370026
+alexandrite,spotlight,0.35453763604164124
+alexandrite,shower cap,0.5204492211341858
+amethyst,carton,0.19323360919952393
+amethyst,perfume,0.39712974429130554
+amethyst,hair slide,0.3856295049190521
+amethyst,lipstick,0.5303840637207031
+andalusite,jigsaw puzzle,0.30358752608299255
+andalusite,buckle,0.1372441202402115
+andalusite,pinwheel,0.31514880061149597
+andalusite,gong,0.3399878144264221
+amazonite,vase,0.24670635163784027
+amazonite,vase,0.15592120587825775
+amazonite,rubber eraser,0.6103347539901733
+amazonite,croquet ball,0.26951780915260315
+amber,butternut squash,0.29504650831222534
+amber,spaghetti squash,0.7703711986541748
+amber,goblet,0.3802855610847473
+amber,maraca,0.312703937292099
+aventurine green,screw,0.1074647605419159
+aventurine green,pick,0.36116036772727966
+aventurine green,cucumber,0.41623958945274353
+aventurine green,petri dish,0.0597674623131752
+aventurine green,loupe,0.16609789431095123
+blue lace agate,pick,0.7504186630249023
+blue lace agate,pick,0.9801106452941895
+blue lace agate,pick,0.6981593370437622
+blue lace agate,rubber eraser,0.24593694508075714
+blue lace agate,spotlight,0.25921815633773804
+chalcedony,vase,0.2892060875892639
+chalcedony,spaghetti squash,0.3764313757419586
+chalcedony,pill bottle,0.30695322155952454
+chalcedony,soup bowl,0.16142357885837555
+beryl golden,honeycomb,0.2939812242984772
+beryl golden,acorn squash,0.8494392037391663
+beryl golden,shower cap,0.8918858170509338
+beryl golden,lemon,0.1581469029188156
+cats eye,vase,0.13690166175365448
+cats eye,acorn,0.4387628138065338
+cats eye,mouse,0.15118400752544403
+cats eye,ping-pong ball,0.20374375581741333
+benitoite,hair slide,0.3856748938560486
+benitoite,shower cap,0.6590496301651001
+benitoite,shower cap,0.9574698805809021
+benitoite,pencil sharpener,0.5642061233520508
+bixbite,digital watch,0.2837913930416107
+bixbite,tray,0.2945243716239929
+bixbite,pinwheel,0.07947644591331482
+bixbite,rubber eraser,0.2926647961139679
+carnelian,pill bottle,0.08747872710227966
+carnelian,ping-pong ball,0.17155049741268158
+carnelian,pill bottle,0.20019754767417908
+carnelian,maraca,0.08715465664863586
+bloodstone,red wine,0.1985558420419693
+bloodstone,croquet ball,0.5221041440963745
+bloodstone,tick,0.24707478284835815
+bloodstone,maraca,0.3146640956401825
+aventurine yellow,orange,0.3515383303165436
+aventurine yellow,orange,0.3855297565460205
+aventurine yellow,pick,0.1235257238149643
+aventurine yellow,orange,0.2854641377925873
+chalcedony blue,nipple,0.2020423710346222
+chalcedony blue,candle,0.2579362988471985
+chalcedony blue,vase,0.13824127614498138
+chalcedony blue,mouse,0.15599425137043
+chrome diopside,bottlecap,0.35884562134742737
+chrome diopside,bottlecap,0.17247214913368225
+chrome diopside,pencil sharpener,0.09552349895238876
+chrome diopside,bubble,0.4767965078353882
+chrysoberyl,pencil sharpener,0.5826045870780945
+chrysoberyl,hair slide,0.25433722138404846
+chrysoberyl,custard apple,0.8251991271972656
+chrysoberyl,bib,0.6984466314315796
+chrysocolla,pick,0.9148522615432739
+chrysocolla,tick,0.34452328085899353
+chrysocolla,screw,0.3645744323730469
+chrysocolla,pick,0.2527103126049042
+danburite,windsor tie,0.3962516486644745
+danburite,golf ball,0.6256628632545471
+danburite,shower cap,0.6301783919334412
+danburite,shower cap,0.6509442329406738
+diaspore,night snake,0.09974851459264755
+diaspore,vase,0.4920601546764374
+diaspore,shower cap,0.8331063389778137
+diaspore,spotlight,0.3152303397655487
+fluorite,pencil sharpener,0.12100860476493835
+fluorite,maraca,0.11336616426706314
+fluorite,head cabbage,0.20666833221912384
+fluorite,pick,0.24690565466880798
+dumortierite,pick,0.7565951943397522
+dumortierite,rubber eraser,0.1361202597618103
+dumortierite,croquet ball,0.24523791670799255
+dumortierite,rubber eraser,0.12429305911064148
+chrysoprase,pencil sharpener,0.5786314010620117
+chrysoprase,pencil sharpener,0.5311517715454102
+chrysoprase,pencil sharpener,0.199471116065979
+chrysoprase,pick,0.19649960100650787
+citrine,whistle,0.6489447951316833
+citrine,perfume,0.27758726477622986
+citrine,golf ball,0.7199019193649292
+citrine,shield,0.833975613117218
+citrine,shower cap,0.6923508048057556
+emerald,pencil sharpener,0.3426639437675476
+emerald,wallet,0.1639837920665741
+emerald,spotlight,0.21251685917377472
+emerald,whistle,0.3106216788291931
+emerald,digital clock,0.3014906048774719
+diamond,spotlight,0.2641538381576538
+diamond,golf ball,0.4989721477031708
+diamond,envelope,0.1002233698964119
+diamond,shower cap,0.7165694832801819
+coral,ice lolly,0.4213842749595642
+coral,bell pepper,0.24145248532295227
+coral,candle,0.2389204055070877
+coral,face powder,0.10612945258617401
+kyanite,hair slide,0.24002431333065033
+kyanite,sunglass,0.1576550155878067
+kyanite,coil,0.3062230944633484
+kyanite,shower cap,0.204580619931221
+iolite,hair slide,0.52761310338974
+iolite,shower cap,0.6590093970298767
+iolite,wallet,0.4908143877983093
+iolite,hair slide,0.5236598253250122
+grossular,spotlight,0.13168947398662567
+grossular,pick,0.6811078190803528
+grossular,custard apple,0.9056130051612854
+grossular,shower cap,0.44713544845581055
+hiddenite,pencil sharpener,0.21965447068214417
+hiddenite,shower cap,0.7807416915893555
+hiddenite,pencil sharpener,0.3817497193813324
+hiddenite,lighter,0.2221917062997818
+kunzite,shower cap,0.9894938468933105
+kunzite,shower cap,0.5375857949256897
+kunzite,shower cap,0.9267638921737671
+kunzite,golf ball,0.49235254526138306
+jade,granny smith,0.23521901667118073
+jade,candle,0.31881117820739746
+jade,saltshaker,0.1780853271484375
+jade,dough,0.35028499364852905
+hessonite,maraca,0.1101224422454834
+hessonite,red wine,0.22711274027824402
+hessonite,pill bottle,0.17888127267360687
+hessonite,hair slide,0.28139370679855347
+goshenite,lighter,0.7563322186470032
+goshenite,steel drum,0.4206671714782715
+goshenite,golf ball,0.5188726782798767
+goshenite,spotlight,0.5690412521362305
+jasper,ocarina,0.20178157091140747
+jasper,maraca,0.13529226183891296
+jasper,pick,0.10319141298532486
+jasper,conch,0.10884544998407364
+jasper,beer glass,0.08216475695371628
+garnet red,pick,0.20348171889781952
+garnet red,red wine,0.1632741540670395
+garnet red,bib,0.1846434324979782
+garnet red,wall clock,0.19317364692687988
+labradorite,bolo tie,0.49504366517066956
+labradorite,pencil sharpener,0.2862827181816101
+labradorite,mask,0.13396239280700684
+labradorite,ocarina,0.2123745083808899
+labradorite,leaf beetle,0.3075835108757019
+lapis lazuli,pill bottle,0.23670068383216858
+lapis lazuli,saltshaker,0.3161843419075012
+lapis lazuli,maraca,0.15503641963005066
+lapis lazuli,pencil sharpener,0.43293529748916626
+onyx black,sunglass,0.5722767114639282
+onyx black,pick,0.29137441515922546
+onyx black,pencil sharpener,0.11187056452035904
+onyx black,loupe,0.07352560758590698
+onyx red,croquet ball,0.2082500010728836
+onyx red,red wine,0.22491611540317535
+onyx red,croquet ball,0.2910686135292053
+onyx red,croquet ball,0.25256162881851196
+moonstone,rubber eraser,0.13481858372688293
+moonstone,rubber eraser,0.09946893155574799
+moonstone,rubber eraser,0.43904349207878113
+moonstone,ping-pong ball,0.17214933037757874
+moonstone,saltshaker,0.20649978518486023
+opal,mouse,0.9738073348999023
+opal,pick,0.7395672798156738
+opal,croquet ball,0.5881357789039612
+opal,jellyfish,0.9962224960327148
+opal,candle,0.4800140857696533
+morganite,hair slide,0.3558735251426697
+morganite,shower cap,0.773087739944458
+morganite,bubble,0.39252522587776184
+morganite,shower cap,0.7212895154953003
+malachite,pick,0.23207610845565796
+malachite,cucumber,0.6843133568763733
+malachite,gasmask,0.1540251225233078
+malachite,pick,0.08876783400774002
+onyx green,pick,0.08266042172908783
+onyx green,band aid,0.10604017972946167
+onyx green,mouse,0.5084502696990967
+onyx green,mouse,0.21632646024227142
+larimar,nematode,0.5979148745536804
+larimar,jellyfish,0.16408710181713104
+larimar,jellyfish,0.20045995712280273
+larimar,pick,0.1370021402835846
+pearl,ping-pong ball,0.6387540698051453
+pearl,spotlight,0.25891631841659546
+pearl,shield,0.33814528584480286
+pearl,croquet ball,0.5022135972976685
+peridot,custard apple,0.1392044872045517
+peridot,bell pepper,0.08820914477109909
+peridot,granny smith,0.13474835455417633
+peridot,birdhouse,0.5070983171463013
+peridot,wall clock,0.1799185872077942
+prehnite,pick,0.14080840349197388
+prehnite,shower cap,0.3623345196247101
+prehnite,pick,0.42651480436325073
+prehnite,petri dish,0.35257595777511597
+prehnite,tennis ball,0.3398211598396301
+rhodochrosite,face powder,0.1971096396446228
+rhodochrosite,lipstick,0.12653058767318726
+rhodochrosite,pomegranate,0.2781303822994232
+rhodochrosite,ice lolly,0.3503698706626892
+quartz rose,bubble,0.23621752858161926
+quartz rose,nipple,0.8771138191223145
+quartz rose,bubble,0.15440377593040466
+quartz rose,bubble,0.17522777616977692
+quartz rutilated,lemon,0.36492031812667847
+quartz rutilated,conch,0.21223405003547668
+quartz rutilated,lemon,0.5115548968315125
+quartz rutilated,pencil sharpener,0.07581578940153122
+quartz rutilated,petri dish,0.15441246330738068
+quartz lemon,custard apple,0.2164991796016693
+quartz lemon,head cabbage,0.14909611642360687
+quartz lemon,bagel,0.1620863527059555
+quartz lemon,pencil sharpener,0.19708511233329773
+pyrite,ocarina,0.11424724012613297
+pyrite,dumbbell,0.22441409528255463
+pyrite,screw,0.2534843981266022
+pyrite,shield,0.6489872336387634
+pyrite,ping-pong ball,0.1242612823843956
+rhodolite,shower cap,0.15398919582366943
+rhodolite,shower cap,0.6883655786514282
+rhodolite,pinwheel,0.47202056646347046
+rhodolite,pinwheel,0.2850569486618042
+pyrope,pencil sharpener,0.1645621359348297
+pyrope,pinwheel,0.3151577413082123
+pyrope,face powder,0.3437623083591461
+pyrope,spindle,0.2714240252971649
+quartz beer,pencil sharpener,0.5174657702445984
+quartz beer,hognose snake,0.09513785690069199
+quartz beer,golf ball,0.135514035820961
+quartz beer,golf ball,0.48231419920921326
+quartz smoky,shield,0.7461137175559998
+quartz smoky,hair slide,0.32482287287712097
+quartz smoky,hair slide,0.17595362663269043
+quartz smoky,wallet,0.10184185951948166
+rhodonite,ice lolly,0.2559272050857544
+rhodonite,face powder,0.6295090913772583
+rhodonite,rubber eraser,0.19077259302139282
+rhodonite,pomegranate,0.3803531229496002
+ruby,hair slide,0.24177142977714539
+ruby,rubber eraser,0.16933350265026093
+ruby,digital clock,0.5654924511909485
+ruby,hair slide,0.274478018283844
+serpentine,pick,0.811961829662323
+serpentine,mouse,0.6285266280174255
+serpentine,pick,0.7791918516159058
+serpentine,pick,0.9041069149971008
+sapphire purple,shower cap,0.92171311378479
+sapphire purple,shower cap,0.11471668630838394
+sapphire purple,golf ball,0.841401994228363
+sapphire purple,hair slide,0.4726496636867523
+scapolite,spotlight,0.5494245290756226
+scapolite,snail,0.5328057408332825
+scapolite,screwdriver,0.34474822878837585
+scapolite,ballpoint,0.2954081594944
+sapphire blue,pick,0.15712188184261322
+sapphire blue,shower cap,0.41585785150527954
+sapphire blue,pick,0.6602432131767273
+sapphire blue,pinwheel,0.3098534643650055
+spessartite,pill bottle,0.12188784033060074
+spessartite,jack-o'-lantern,0.110026516020298
+spessartite,wall clock,0.7723366618156433
+spessartite,orange,0.6846674084663391
+sapphire pink,shower cap,0.7865720391273499
+sapphire pink,hair slide,0.45102831721305847
+sapphire pink,shower cap,0.8693398833274841
+sapphire pink,face powder,0.42134761810302734
+sodalite,hair slide,0.40397772192955017
+sodalite,chambered nautilus,0.3437531888484955
+sodalite,screw,0.3128873109817505
+sodalite,spotlight,0.557787299156189
+sphene,hair slide,0.12762737274169922
+sphene,shower cap,0.9724950194358826
+sphene,pinwheel,0.5361490249633789
+sphene,pick,0.8340470194816589
+sapphire yellow,lemon,0.07399897277355194
+sapphire yellow,pick,0.20234839618206024
+sapphire yellow,screw,0.15364009141921997
+sapphire yellow,spaghetti squash,0.19992941617965698
+spinel,switch,0.22436387836933136
+spinel,mouse,0.28089427947998047
+spinel,pick,0.15953724086284637
+spinel,soccer ball,0.8110642433166504
+spodumene,shield,0.10739710927009583
+spodumene,shower cap,0.2867450714111328
+spodumene,thimble,0.17391745746135712
+spodumene,head cabbage,0.8402277827262878
+sunstone,buckeye,0.2975744307041168
+sunstone,nail,0.5452274084091187
+sunstone,orange,0.12401111423969269
+sunstone,chambered nautilus,0.20493605732917786
+tanzanite,bubble,0.2898987829685211
+tanzanite,shower cap,0.5852013826370239
+tanzanite,shower cap,0.8432599306106567
+tanzanite,hair slide,0.5623650550842285
+variscite,croquet ball,0.3582993745803833
+variscite,iron,0.31443578004837036
+variscite,chiton,0.24548134207725525
+variscite,pick,0.9984063506126404
+tourmaline,shower cap,0.5846397876739502
+tourmaline,hair slide,0.32873040437698364
+tourmaline,mousetrap,0.13541702926158905
+tourmaline,pick,0.1632145345211029
+tourmaline,hair slide,0.43321722745895386
+topaz,pick,0.49561846256256104
+topaz,hair slide,0.6945995092391968
+topaz,shower cap,0.9924968481063843
+topaz,pencil sharpener,0.5374277234077454
+tigers eye,pill bottle,0.14394539594650269
+tigers eye,buckeye,0.99473637342453
+tigers eye,croquet ball,0.20692592859268188
+tigers eye,pick,0.19645175337791443
+tigers eye,pick,0.23454754054546356
+zoisite,tennis ball,0.3771493136882782
+zoisite,granny smith,0.5335338115692139
+zoisite,cucumber,0.697069525718689
+zoisite,granny smith,0.3239981532096863
+tsavorite,pencil sharpener,0.28289690613746643
+tsavorite,pick,0.2581019103527069
+tsavorite,rubber eraser,0.1419990509748459
+tsavorite,hair slide,0.3105287551879883
+turquoise,croquet ball,0.22075976431369781
+turquoise,croquet ball,0.52984219789505
+turquoise,mouse,0.23584657907485962
+turquoise,pencil box,0.39110472798347473
+zircon,shower cap,0.48024794459342957
+zircon,umbrella,0.6272120475769043
+zircon,spotlight,0.377398818731308
+zircon,shower cap,0.32733339071273804
